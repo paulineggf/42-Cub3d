@@ -6,19 +6,24 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:54:32 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/26 17:35:01 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/27 11:43:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_pos	*init_pos(t_map *map)
+void	init_pos(t_pos *gamer, int orientation, int x, int y)
 {
-	t_pos	*gamer;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while ()
+	gamer->posx = x;
+	gamer->posy = y;
+	if (orientation == 'N')
+		gamer->degree = 90;
+	if (orientation == 'E')
+		gamer->degree = 0;
+	if (orientation == 'W')
+		gamer->degree = 180;
+	if (orientation == 'S')
+		gamer->degree = 270;
+	gamer->unitx = (gamer->posx * BLOCK_SIZE) + (BLOCK_SIZE / 2);
+	gamer->unity = (gamer->posy * BLOCK_SIZE) + (BLOCK_SIZE / 2);
 }

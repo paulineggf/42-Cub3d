@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/11/26 14:59:07 by pganglof         ###   ########.fr        #
+#    Updated: 2019/11/27 11:41:46 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS_NAME =	main.c				\
 			init_map.c 			\
 			ft_close.c			\
 			malloc_map.c		\
-			fill_map.c 
+			fill_map.c 			\
+			init_pos.c
 
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/26 18:43:09 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/27 11:43:23 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int		define_y(int fd, char *buf, t_map *map, int *ret);
 int		define_x(int fd, char *buf, t_map *map, int *ret);
 int		ft_close(int fd);
 int		fill_map(int fd, t_map *map, t_pos *gamer);
+void	init_pos(t_pos *gamer, int orientation, int x, int y);
 
 
 #endif
