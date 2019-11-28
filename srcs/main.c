@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/28 13:24:19 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/28 17:40:01 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(int argc, char **argv)
 			return (0);
 		if (!init_map(argv[1], map, gamer))
 			return (0);
-		gamer->degree = 45;
+
 		if (!(ptr = malloc(sizeof(t_win))))
 			return (0);
 		ft_bzero(ptr, sizeof(ptr));
