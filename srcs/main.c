@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/27 15:44:51 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/28 13:24:19 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main(int argc, char **argv)
 {
 	t_pos	*gamer;
 	t_map	*map;
+	t_win	*ptr;
 
 	if (argc == 2)
 	{
@@ -31,7 +32,14 @@ int		main(int argc, char **argv)
 		if (!init_map(argv[1], map, gamer))
 			return (0);
 		gamer->degree = 45;
-		launch_game(map, gamer);
+		if (!(ptr = malloc(sizeof(t_win))))
+			return (0);
+		ft_bzero(ptr, sizeof(ptr));
+		ptr->mlx_ptr = mlx_init();
+		ptr->win_ptr = mlx_new_window(ptr->mlx_ptr,
+		PROJ_PLANE_X, PROJ_PLANE_Y, "Cub3D");
+		ptr->color = 0xFF6F8F;
+		launch_game(map, gamer, ptr);
 	}
 	return (0);
 }

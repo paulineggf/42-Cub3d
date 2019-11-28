@@ -6,29 +6,37 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/27 19:13:32 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/28 14:28:39 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		draw_wall(int key, void *param)
+int			draw_wall(int key, void *param)
 {
+	t_map	*map;
+	t_pos	*wall;
 	t_win	*ptr;
+	float	begin;
 
 	(void)key;
-	if (!(ptr = malloc(sizeof(ptr))))
-		return (0);
-	ft_bzero(ptr, sizeof(ptr));
-	printf("%x\n", (((t_win*)((t_map*)(param))->ptr))->color);
-	ptr = ((t_map*)(param))->ptr;
-	printf("ptr->color : %x\n", ptr->color);
-	/*while (gamer->beta >= -30)
-	{
-		if (!(wall = is_wall(map, gamer)))
-			return (0);
-		slice_height = BLOCK_SIZE / dis_wall(gamer, wall) * map->dis_proj_plane;
-		//mlx_pixel_put((void*)&key, p->win_ptr, p->i, p->x, p->color);
-	}*/
+	map = (t_map*)param;
+	wall = (t_pos*)map->pos;
+	ptr = (t_win*)map->ptr;
+	begin = PROJ_PLANE_Y - (wall->slice_height / 2);
+	while (begin <= begin + wall->slice_height)
+		mlx_pixel_put(ptr->mlx_ptr, ptr->win_ptr,
+		wall->posx, begin++, ptr->color);
 	return (1);
 }
+
+/*void		draw_wall(int slice_height, t_win *ptr, t_pos *wall)
+{
+	int		begin;
+
+	begin = PROJ_PLANE_Y - (slice_height / 2);
+	while (begin <= begin + slice_height)
+		mlx_pixel_put(ptr->mlx_ptr, ptr->win_ptr,
+		wall->posx, begin++, ptr->color);
+}
+*/

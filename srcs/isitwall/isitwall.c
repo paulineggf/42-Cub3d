@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 11:47:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/27 18:29:07 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/28 15:41:07 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void		is_wallbis(t_pos *gamer, t_pos *wall)
 {
 	*(float*)wall->unitx = *(float*)(wall->unitx)
-	+ (int)(BLOCK_SIZE / tan(ALPHA * M_PI / 180));
+	+ (int)(BLOCK_SIZE / tan(gamer->degree * M_PI / 180));
 	if (gamer->facing_up)
 		*(float*)wall->unity = *(float*)(wall->unity) + -BLOCK_SIZE;
 	else
@@ -34,7 +34,7 @@ static void		fill_wall_hor(t_map *map, t_pos *gamer, t_pos *wall_hor)
 		* (BLOCK_SIZE) + BLOCK_SIZE;
 	*(float*)(wall_hor->unitx) = *(int*)(gamer->unitx)
 	+ (*(int*)(gamer->unity) - *(float*)wall_hor->unity)
-	/ tan(ALPHA * M_PI / 180);
+	/ tan(gamer->degree * M_PI / 180);
 	wall_hor->posx = *(float*)(wall_hor->unitx) / BLOCK_SIZE;
 	wall_hor->posy = *(float*)(wall_hor->unity) / BLOCK_SIZE;
 	while (map->map[wall_hor->posy][wall_hor->posx] == 0)
@@ -50,14 +50,17 @@ static void		fill_wall_ver(t_map *map, t_pos *gamer, t_pos *wall_ver)
 		*(float*)(wall_ver->unitx) = (*(int*)(gamer->unitx)
 		/ BLOCK_SIZE) * (BLOCK_SIZE) - 1;
 	*(float*)(wall_ver->unity) = *(int*)(gamer->unity) + (*(int*)(gamer->unitx)
-	- *(float*)(wall_ver->unitx)) * tan(ALPHA * M_PI / 180);
+	- *(float*)(wall_ver->unitx)) / tan(gamer->degree * M_PI / 180);
 	wall_ver->posx = *(float*)(wall_ver->unitx) / BLOCK_SIZE;
 	wall_ver->posy = *(float*)(wall_ver->unity) / BLOCK_SIZE;
-	while (map->map[wall_ver->posy][wall_ver->posx] == 0)
+	while (wall_ver->posy >= 0 && wall_ver->posx >= 0 && map->map[wall_ver->posy][wall_ver->posx] == 0)
 	{
-		*(float*)wall_ver->unitx = *(float*)wall_ver->unitx + BLOCK_SIZE;
+		if (gamer->facing_right)
+			*(float*)wall_ver->unitx = *(float*)wall_ver->unitx + BLOCK_SIZE;
+		else
+			*(float*)wall_ver->unitx = *(float*)wall_ver->unitx + -BLOCK_SIZE;
 		*(float*)wall_ver->unity = *(float*)wall_ver->unity
-		- (int)(BLOCK_SIZE * tan(ALPHA * M_PI / 180));
+		- (int)(BLOCK_SIZE / tan(gamer->degree * M_PI / 180));
 		wall_ver->posx = *(float*)(wall_ver->unitx) / BLOCK_SIZE;
 		wall_ver->posy = *(float*)(wall_ver->unity) / BLOCK_SIZE;
 	}

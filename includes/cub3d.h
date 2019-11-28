@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/27 19:01:02 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/28 15:19:20 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ typedef struct	s_pos
 	void		*unitx;
 	void		*unity;
 	int			degree;
-	int			beta;
+	double		beta;
 	int			facing_up;
 	int			facing_down;
 	int			facing_right;
 	int			facing_left;
 	int			hor;
 	int			ver;
+	float		slice_height;
 }				t_pos;
 
 typedef struct		s_win
@@ -63,7 +64,7 @@ typedef struct	s_map
 	int			dis_proj_plane;
 	int			**map;
 	t_win		*ptr;
-	t_pos		*gamer;
+	t_pos		*pos;
 }				t_map;
 
 int		malloc_map(t_map *map);
@@ -73,10 +74,10 @@ int		define_x(int fd, char *buf, t_map *map, int *ret);
 int		ft_close(int fd);
 int		fill_map(int fd, t_map *map, t_pos *gamer);
 void	init_pos(t_pos *gamer, int orientation, int x, int y);
-int		launch_game(t_map *map, t_pos *gamer);
+int		launch_game(t_map *map, t_pos *gamer, t_win *ptr);
 t_pos	*is_wall(t_map *map, t_pos *gamer);
 t_pos	*free_wall(t_pos *ret, t_pos *wall);
-float	dis_wall(t_pos *gamer, t_pos *wall);
+double	dis_wall(t_pos *gamer, t_pos *wall);
 int		draw_wall(int key, void *param);
 
 #endif
