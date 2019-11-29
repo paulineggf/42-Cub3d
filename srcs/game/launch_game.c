@@ -6,12 +6,14 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 11:48:54 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/29 19:49:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/29 20:14:48 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+// VERIF DU TEST ACTUEL --> FILL_WALL_VER AVEC LES TMP ETC
+ 
 int		launch_game(t_map *map, t_pos *gamer, t_win *ptr)
 {
 	t_pos	*wall;
