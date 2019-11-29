@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/28 18:31:46 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/29 19:21:30 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "mlx.h"
 
 # define ALPHA			60
-# define BLOCK_SIZE 	64
+# define BLOCK_SIZE 	200
 # define BUFFER_CUB		33
 # define PROJ_PLANE_X	320
 # define PROJ_PLANE_Y	200
@@ -34,8 +34,8 @@ typedef struct	s_pos
 {
 	int			posx;
 	int			posy;
-	void		*unitx;
-	void		*unity;
+	int			unitx;
+	int			unity;
 	int			degree;
 	double		beta;
 	int			facing_up;
@@ -61,7 +61,7 @@ typedef struct	s_map
 {
 	int			x;
 	int			y;
-	int			dis_proj_plane;
+	float		dis_proj_plane;
 	int			**map;
 	t_win		*ptr;
 	t_pos		*pos;
@@ -77,7 +77,10 @@ void	init_pos(t_pos *gamer, int orientation, int x, int y);
 int		launch_game(t_map *map, t_pos *gamer, t_win *ptr);
 t_pos	*is_wall(t_map *map, t_pos *gamer);
 t_pos	*free_wall(t_pos *ret, t_pos *wall);
-double	dis_wall(t_pos *gamer, t_pos *wall);
+float	dis_wall(t_pos *gamer, t_pos *wall);
 int		draw_wall(int key, void *param);
+void	fill_wall_hor(t_map *map, t_pos *gamer, t_pos *wall_hor);
+void	fill_wall_ver(t_map *map, t_pos *gamer, t_pos *wall_ver);
+t_pos	*ft_closer(t_pos *gamer, t_pos *wall_hor, t_pos *wall_ver);
 
 #endif

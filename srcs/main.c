@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/28 17:40:01 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/29 15:48:23 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ int		main(int argc, char **argv)
 		if (!(gamer = malloc(sizeof(t_pos))))
 			return (0);
 		ft_bzero(gamer, sizeof(t_pos));
-		if (!(gamer->unitx = ft_calloc(1, sizeof(int)))
+	/*	if (!(gamer->unitx = ft_calloc(1, sizeof(int)))
 		|| !(gamer->unity = ft_calloc(1, sizeof(int))))
-			return (0);
+			return (0);*/
 		if (!init_map(argv[1], map, gamer))
 			return (0);
-
 		if (!(ptr = malloc(sizeof(t_win))))
 			return (0);
 		ft_bzero(ptr, sizeof(ptr));
-		ptr->mlx_ptr = mlx_init();
+	/*	ptr->mlx_ptr = mlx_init();
 		ptr->win_ptr = mlx_new_window(ptr->mlx_ptr,
-		PROJ_PLANE_X, PROJ_PLANE_Y, "Cub3D");
+		PROJ_PLANE_X, PROJ_PLANE_Y, "Cub3D");*/
 		ptr->color = 0xFF6F8F;
 		launch_game(map, gamer, ptr);
 	}

@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/11/28 12:56:30 by pganglof         ###   ########.fr        #
+#    Updated: 2019/11/29 17:05:22 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ SRCS_INIT = define_x.c 				\
 
 SRCS_WALL = dis_wall.c 				\
 			free_wall.c				\
-			isitwall.c
+			isitwall.c 				\
+			fill_wall_hor.c 		\
+			fill_wall_ver.c 		\
+			ft_closer.c
 
 SRCS_GAME =	draw_wall.c 			\
 			launch_game.c

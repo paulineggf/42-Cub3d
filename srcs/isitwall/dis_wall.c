@@ -6,47 +6,23 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 17:47:21 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/28 18:43:14 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/29 18:44:18 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double	dis_wall(t_pos *gamer, t_pos *wall)
+float	dis_wall(t_pos *gamer, t_pos *wall)
 {
-/*	printf("%f\n", sqrt(ft_iterative_power(*(int*)gamer->unitx - *(float*)wall->unitx, 2)
-	+ ft_iterative_power(*(int*)gamer->unity - *(float*)wall->unity, 2))
-	* cos(gamer->beta));
-
-	printf("%f\n", BLOCK_SIZE / sqrt(ft_iterative_power(*(int*)gamer->unitx - *(float*)wall->unitx, 2)
-	+ ft_iterative_power(*(int*)gamer->unity - *(float*)wall->unity, 2))
-	* cos(gamer->beta) * 277);*/
-
-	/*double ite;
-
-	ite = (double)((double)(ft_iterative_power(*(int*)gamer->unitx - *(float*)wall->unitx, 2)
-	+ (double)(ft_iterative_power(*(int*)gamer->unity - *(float*)wall->unity, 2))));
-
-	printf("ite %f\n", ite);
-
-	printf("sqrt %f\n", (float)sqrt(ite));
+	if (gamer->facing_up && gamer->facing_right)
+		return (((wall->unitx - gamer->unitx) / cos((gamer->degree) * M_PI / 180)) * (cos(gamer->beta * M_PI / 180)));
+	if (gamer->facing_up && gamer->facing_left)
+		return (((gamer->unitx - wall->unitx) / cos((180 - gamer->degree) * M_PI / 180)) * (cos(gamer->beta * M_PI / 180)));
+	if (gamer->facing_down && gamer->facing_right)
+		return (((wall->unitx - gamer->unitx) / cos((360 - gamer->degree) * M_PI / 180)) * (cos(gamer->beta * M_PI / 180)));
+	if (gamer->facing_down && gamer->facing_left)
+		return (((gamer->unitx - wall->unitx) / cos((gamer->degree - 180) * M_PI / 180)) * (cos(gamer->beta * M_PI / 180)));
+	return (0);
 
 
-	printf("slice1 : %f\n", BLOCK_SIZE / (double)sqrt(ite) * 277);*/
-
-	printf("TEST\n");
-
-	printf("pow1 :%G\n", pow(*(int*)gamer->unitx - *(float*)wall->unitx, 2));
-	
-	printf("dis : %G\n", sqrt(pow((double)(*(int*)gamer->unitx - *(float*)wall->unitx), 2)
-	+ pow((double)(*(int*)gamer->unity - *(float*)wall->unity), 2))
-	* cos(gamer->beta * M_PI / 180));
-
-	return (sqrt(pow((double)(*(int*)gamer->unitx - *(float*)wall->unitx), 2)
-	+ pow((double)(*(int*)gamer->unity - *(float*)wall->unity), 2))
-	* cos(gamer->beta * M_PI / 180));
-
-/*	return ((double)sqrt((double)((double)(ft_iterative_power(*(int*)gamer->unitx - *(float*)wall->unitx, 2)
-	+ (double)(ft_iterative_power(*(int*)gamer->unity - *(float*)wall->unity, 2))))
-	* cos(gamer->beta)));*/
 }
