@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:54:32 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/29 19:22:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/29 20:03:26 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		init_pos(t_pos *gamer, int orientation, int x, int y)
 		gamer->degree = 180;
 	if (orientation == 'S')
 		gamer->degree = 270;
-	gamer->degree = 40;
+	gamer->degree = 2;
 	if (gamer->degree >= 0 && gamer->degree < 180)
 		gamer->facing_up = 1;
 	if (gamer->degree >= 180 && gamer->degree < 360)

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 16:22:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/29 17:21:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/29 20:13:39 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,22 @@ void	fill_wall_ver(t_map *map, t_pos *gamer, t_pos *wall_ver)
 	while (wall_ver->posy >= 0 && wall_ver->posx >= 0 && wall_ver->posy < map->y
 	&& wall_ver->posx < map->x && map->map[wall_ver->posy][wall_ver->posx] == 0)
 	{
+		if (gamer->facing_right && ((wall_ver->unitx + BLOCK_SIZE) / BLOCK_SIZE) < map->x)
+			break ;
+		if (gamer->facing_left && ((wall_ver->unitx + BLOCK_SIZE) / BLOCK_SIZE) < map->x)
+			break ;
+		int tmpx;
+		int	tmpy;
 		if (gamer->facing_right)
-			wall_ver->unitx = wall_ver->unitx + BLOCK_SIZE;
-		else
-			wall_ver->unitx = wall_ver->unitx - BLOCK_SIZE;
-		wall_ver->unity = gamer->unity
-		+ (gamer->unitx - wall_ver->unitx) * tan(gamer->degree * M_PI / 180);
+			tmpx = wall_ver->unitx + BLOCK_SIZE;
+		else if (gamer->facing_right)
+			tmpx = wall_ver->unitx - BLOCK_SIZE;
+		if (tmpx > map->x)
+			break ;
+		tmpy = gamer->unity
+		+ (gamer->unitx - tmpx) * tan(gamer->degree * M_PI / 180);
+		if (tmpy > map->y)
+			break ;
 		wall_ver->posx = wall_ver->unitx / BLOCK_SIZE;
 		wall_ver->posy = wall_ver->unity / BLOCK_SIZE;
 	}

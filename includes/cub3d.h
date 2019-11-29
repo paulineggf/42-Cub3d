@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/29 19:21:30 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/11/29 20:03:22 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "mlx.h"
 
 # define ALPHA			60
-# define BLOCK_SIZE 	200
+# define BLOCK_SIZE 	64
 # define BUFFER_CUB		33
 # define PROJ_PLANE_X	320
 # define PROJ_PLANE_Y	200
