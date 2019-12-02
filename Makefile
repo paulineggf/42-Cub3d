@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/11/29 17:05:22 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/02 22:04:41 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,13 @@ LIB = libft/libft.a
 MLX = minilibx_opengl_20191021/libmlx.a
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g -I $(HEADERS) -I $(HEADERS2) 
+CFLAGS = -Wall -Wextra -Werror -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
+
+DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS3:.c=.d) $(SRCS4:.c=.d) 
 
 all: $(NAME)
+
+-include $(DPDCS)
 
 $(NAME): $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4)
 	$(CC) $(CFLAGS) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) -I /usr/local/include/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) $(MLX)

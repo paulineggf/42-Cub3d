@@ -6,13 +6,13 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 14:45:54 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/27 15:41:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/02 18:41:09 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void		fill_mapbis(char *buf, int *i, t_map *map, t_pos *gamer)
+static void		fill_mapbis(char *buf, int *i, t_map *map)
 {
 	int		j;
 	int		k;
@@ -25,7 +25,7 @@ static void		fill_mapbis(char *buf, int *i, t_map *map, t_pos *gamer)
 		{
 			if (buf[k] == 'N' || buf[k] == 'W'
 			|| buf[k] == 'E' || buf[k] == 'S')
-				init_pos(gamer, buf[k], j, *i);
+				init_pos(map, buf[k], j, *i);
 			map->map[*i][j++] = buf[k++] - 48;
 		}
 		if (!buf[k])
@@ -37,7 +37,7 @@ static void		fill_mapbis(char *buf, int *i, t_map *map, t_pos *gamer)
 	}
 }
 
-int				fill_map(int fd, t_map *map, t_pos *gamer)
+int				fill_map(int fd, t_map *map)
 {
 	int		ret;
 	int		i;
@@ -51,7 +51,7 @@ int				fill_map(int fd, t_map *map, t_pos *gamer)
 	{
 		k = 0;
 		buf[ret] = '\0';
-		fill_mapbis(buf, &i, map, gamer);
+		fill_mapbis(buf, &i, map);
 	}
 	return (ret);
 }
