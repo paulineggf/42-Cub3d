@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/29 20:03:22 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:37:16 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct	s_map
 	float		dis_proj_plane;
 	int			**map;
 	t_win		*ptr;
-	t_pos		*pos;
+	t_pos		*gamer;
 }				t_map;
 
 int		malloc_map(t_map *map);
@@ -74,7 +74,7 @@ int		define_x(int fd, char *buf, t_map *map, int *ret);
 int		ft_close(int fd);
 int		fill_map(int fd, t_map *map, t_pos *gamer);
 void	init_pos(t_pos *gamer, int orientation, int x, int y);
-int		launch_game(t_map *map, t_pos *gamer, t_win *ptr);
+int		launch_game(t_map *map);
 t_pos	*is_wall(t_map *map, t_pos *gamer);
 t_pos	*free_wall(t_pos *ret, t_pos *wall);
 float	dis_wall(t_pos *gamer, t_pos *wall);
