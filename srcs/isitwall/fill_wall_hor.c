@@ -6,17 +6,11 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:58:24 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/29 17:18:02 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:00:40 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-/*	printf("unity : %d\n", wall_hor->unity);
-**	printf("unitx : %d\n", wall_hor->unitx);
-**	printf("posy : %d\n", wall_hor->posy);
-**	printf("posx : %d\n", wall_hor->posx);
-**	printf("map : %d\n", map->map[wall_hor->posy][wall_hor->posx]); */
 
 void	fill_wall_hor(t_map *map, t_pos *gamer, t_pos *wall_hor)
 {
