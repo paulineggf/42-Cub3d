@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/03 11:32:18 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/03 17:05:49 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define ALPHA			60
 # define BLOCK_SIZE 	64
 # define BUFFER_CUB		33
-# define PROJ_PLANE_X	1920
-# define PROJ_PLANE_Y	1080
+# define PROJ_PLANE_X	320
+# define PROJ_PLANE_Y	200
 
 typedef struct	s_pos
 {
@@ -82,10 +82,10 @@ void	init_pos(t_map *map, int orientation, int x, int y);
 int		launch_game(t_map *map);
 t_pos	*is_wall(t_map *map);
 t_pos	*free_wall(t_pos *ret, t_pos **wall);
-//float	dis_wall(t_pos *gamer, t_pos *wall);
 int		draw_wall(int key, void *param);
 void	fill_wall_hor(t_map *map, t_pos *wall_hor);
 void	fill_wall_ver(t_map *map, t_pos *wall_ver);
 t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver);
+int		draw_wall2(t_map *map, unsigned int *str);
 
 #endif

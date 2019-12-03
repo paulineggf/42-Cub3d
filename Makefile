@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/03 11:24:48 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/03 16:41:05 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS_WALL = dis_wall.c 				\
 			ft_closer.c
 
 SRCS_GAME =	draw_wall.c 			\
+			draw_wall2.c 			\
 			launch_game.c
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
@@ -50,7 +51,7 @@ LIB = libft/libft.a
 MLX = minilibx_opengl_20191021/libmlx.a
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
 
 DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS3:.c=.d) $(SRCS4:.c=.d) 
 
