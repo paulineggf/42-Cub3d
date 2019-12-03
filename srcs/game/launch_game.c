@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 11:48:54 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/02 21:02:19 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:07:57 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		launch_game(t_map *map)
 {
-	mlx_key_hook(map->ptr->win_ptr, draw_wall, map);
-	mlx_loop(map->ptr->mlx_ptr);
+	mlx_key_hook(map->ptr->win, draw_wall, map);
+	mlx_loop(map->ptr->mlx);
 	return (1);
 }

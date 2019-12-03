@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/02 22:05:10 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/03 11:32:18 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,12 @@ typedef struct		s_win
 	int		y;
 	int		i;
 	int		color;
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void	*mlx;
+	void	*win;
+	void	*img;
+	int		b_p;
+	int		size_l;
+	int		endian;
 }					t_win;
 
 typedef struct	s_map

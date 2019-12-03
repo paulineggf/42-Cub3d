@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:54:32 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/02 21:37:42 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/03 11:23:48 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void		init_pos(t_map *map, int orientation, int x, int y)
 		map->gamer->facing_right = 1;
 	if (map->gamer->degree > 90 && map->gamer->degree <= 270)
 		map->gamer->facing_left = 1;
-	map->gamer->unitx = (double)(((double)map->gamer->posx * (double)BLOCK_SIZE) + ((double)BLOCK_SIZE / 2.0));
-	map->gamer->unity = (double)(((double)map->gamer->posy * (double)BLOCK_SIZE) + ((double)BLOCK_SIZE / 2.0));
+	map->gamer->unitx = (double)(((double)map->gamer->posx
+	* (double)BLOCK_SIZE) + ((double)BLOCK_SIZE / 2.0));
+	map->gamer->unity = (double)(((double)map->gamer->posy
+	* (double)BLOCK_SIZE) + ((double)BLOCK_SIZE / 2.0));
 }

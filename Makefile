@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/02 22:04:41 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/03 11:24:48 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ $(NAME): $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4)
 	$(CC) $(CFLAGS) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) -I /usr/local/include/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) $(MLX)
 
 clean:
-	$(RM) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4)
+	$(RM) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) -include $(DPDCS)
 
 fclean: clean
 	$(RM) $(NAME)
