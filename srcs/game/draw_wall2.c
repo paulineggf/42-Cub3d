@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 16:13:45 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/03 17:12:23 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/03 17:34:16 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ static int		draw_wall3(t_map *map, t_pos *wall, unsigned int *str)
 	map->ptr->y = (PROJ_PLANE_Y / 2) - (wall->slice_height / 2);
 	if (map->ptr->y < 0 || map->ptr->y > PROJ_PLANE_Y)
 		map->ptr->y = 0;
+	if (wall->hor)
+		map->ptr->color = 0xF654AB;
+	else
+		map->ptr->color = 0xFF6541;
 	tmp = map->ptr->y;
 	while (map->ptr->y <= tmp + wall->slice_height
 	&& map->ptr->y < PROJ_PLANE_Y)

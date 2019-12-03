@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:54:32 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/03 16:33:38 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/03 17:30:13 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		init_pos(t_map *map, int orientation, int x, int y)
 		map->gamer->degree = 180.0;
 	if (orientation == 'S')
 		map->gamer->degree = 270.0;
-	map->gamer->degree = 135.0;
+//	map->gamer->degree = 135.0;
 	if (map->gamer->degree >= 0 && map->gamer->degree < 180)
 		map->gamer->facing_up = 1;
 	if (map->gamer->degree >= 180 && map->gamer->degree < 360)
