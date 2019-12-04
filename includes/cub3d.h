@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/03 17:27:15 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/04 14:00:15 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ typedef struct	s_pos
 	double		dis;
 }				t_pos;
 
-typedef struct		s_win
+typedef struct	s_win
 {
-	int		x;
-	int		y;
-	int		i;
-	int		color;
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		b_p;
-	int		size_l;
-	int		endian;
-}					t_win;
+	int			x;
+	int			y;
+	int			i;
+	int			color;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	int			b_p;
+	int			size_l;
+	int			endian;
+}				t_win;
 
 typedef struct	s_map
 {
@@ -87,5 +87,6 @@ void	fill_wall_hor(t_map *map, t_pos *wall_hor);
 void	fill_wall_ver(t_map *map, t_pos *wall_ver);
 t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver);
 int		draw_wall2(t_map *map, unsigned int *str);
+void	move_gamer(int key, t_map *map);
 
 #endif

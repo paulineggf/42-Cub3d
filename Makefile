@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/03 16:41:05 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/04 11:40:31 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS_WALL = dis_wall.c 				\
 
 SRCS_GAME =	draw_wall.c 			\
 			draw_wall2.c 			\
-			launch_game.c
+			launch_game.c 			\
+			move_gamer.c
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
 SRCS2 = $(addprefix $(PATH_INIT), $(SRCS_INIT))
