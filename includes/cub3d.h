@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/04 16:10:38 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:02:55 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ void	move_gamer(int key, t_map *map);
 void	orientation(t_map *map);
 int		move_forward(t_map *map);
 int		move_back(t_map *map);
+int		main(int argc, char **argv);
 
 #endif

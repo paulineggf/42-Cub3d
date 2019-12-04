@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/04 16:39:49 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:06:02 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int			draw_wall(int key, void *param)
 	t_map			*map;
 	unsigned int	*str;
 
-	(void)key;
 	map = (t_map*)param;
 	if (key == 1 || key == 2 || key == 6 || key == 12)
 		move_gamer(key, map);

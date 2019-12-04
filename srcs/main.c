@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/03 11:32:34 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:05:39 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main(int argc, char **argv)
 {
 	t_map	*map;
 
+	printf("TEST\n");
 	if (argc == 2)
 	{
 		if (!(map = malloc(sizeof(t_map))))
