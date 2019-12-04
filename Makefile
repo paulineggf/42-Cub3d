@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/04 11:40:31 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/04 16:23:49 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ SRCS_INIT = define_x.c 				\
 			init_pos.c 				\
 			malloc_map.c
 
-SRCS_WALL = dis_wall.c 				\
-			free_wall.c				\
+SRCS_WALL = free_wall.c				\
 			isitwall.c 				\
 			fill_wall_hor.c 		\
 			fill_wall_ver.c 		\
@@ -35,7 +34,10 @@ SRCS_WALL = dis_wall.c 				\
 SRCS_GAME =	draw_wall.c 			\
 			draw_wall2.c 			\
 			launch_game.c 			\
-			move_gamer.c
+			move_gamer.c 			\
+			orientation.c 			\
+			move_forward.c 			\
+			move_back.c
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
 SRCS2 = $(addprefix $(PATH_INIT), $(SRCS_INIT))

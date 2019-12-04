@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 15:58:24 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/04 14:07:04 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/04 16:33:36 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 void	fill_wall_hor(t_map *map, t_pos *wall_hor)
 {
 	if (map->gamer->facing_up)
-		wall_hor->unity = (double)((map->gamer->posy * BLOCK_SIZE) - 1);
+		wall_hor->unity = (double)((map->gamer->posy / BLOCK_SIZE)
+		* (BLOCK_SIZE) - 1);
 	else
-		wall_hor->unity = (double)((map->gamer->posy
-		* BLOCK_SIZE) + BLOCK_SIZE);
+		wall_hor->unity = (double)((map->gamer->posy / BLOCK_SIZE)
+		* (BLOCK_SIZE) + BLOCK_SIZE);
 	wall_hor->unitx = (double)(map->gamer->unitx
 	+ (map->gamer->unity - wall_hor->unity)
 	/ tan(map->gamer->degree * M_PI / 180.0));

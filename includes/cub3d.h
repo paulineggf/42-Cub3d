@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/04 14:00:15 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/04 16:10:38 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,8 @@ void	fill_wall_ver(t_map *map, t_pos *wall_ver);
 t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver);
 int		draw_wall2(t_map *map, unsigned int *str);
 void	move_gamer(int key, t_map *map);
+void	orientation(t_map *map);
+int		move_forward(t_map *map);
+int		move_back(t_map *map);
 
 #endif
