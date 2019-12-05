@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 16:13:45 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 15:42:49 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/05 17:51:29 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static int		draw_wall3(t_map *map, unsigned int *str)
 	int		tmp;
 	t_pos	*wall;
 
+	if (map->gamer->beta == 30)
+		printf("degree 2: %f\n", map->gamer->degree);
 	if (!(wall = is_wall(map)))
 		return (0);
 	//if (map->gamer->beta == 30)
@@ -46,6 +48,9 @@ static int		draw_wall3(t_map *map, unsigned int *str)
 	* (map->dis_proj_plane);
 	if (map->gamer->beta == 30)
 	{
+		printf("gamer->unitx : %d\ngamer->unity : %d\n", map->gamer->unitx, map->gamer->unity);
+		printf("gamer->posx : %d\ngamer->posy : %d\n", map->gamer->posx, map->gamer->posy);
+		printf("up : %d\ndown : %d\nright : %d\nleft : %d\n", map->gamer->facing_up, map->gamer->facing_down, map->gamer->facing_right, map->gamer->facing_left);
 		printf("degree 2: %f\n", map->gamer->degree);
 		printf("wall->unitx : %d\nwall->unity : %d\nwall->posx : %d\nwall->posy : %d\n", wall->unitx, wall->unity, wall->posx, wall->posy);
 		printf("wall->dis 1: %f\nwall->dis 2 : %f\n", wall->dis, wall->dis * cos((double)(map->gamer->beta * M_PI / 180.0)));
@@ -88,14 +93,22 @@ int				draw_wall2(t_map *map, unsigned int *str)
 			map->gamer->degree -= 360;
 		if (map->gamer->degree < 0)
 			map->gamer->degree += 360;
-		if (map->gamer->degree >= 0 && map->gamer->degree < 180)
-			map->gamer->facing_up = 1;
-		if (map->gamer->degree >= 180 && map->gamer->degree < 360)
-			map->gamer->facing_down = 1;
-		if (map->gamer->degree <= 90 || map->gamer->degree > 270)
-			map->gamer->facing_right = 1;
-		if (map->gamer->degree > 90 && map->gamer->degree <= 270)
-			map->gamer->facing_left = 1;
+	if (map->gamer->degree >= 0 && map->gamer->degree < 180)
+		map->gamer->facing_up = 1;
+	else
+		map->gamer->facing_up = 0;
+	if (map->gamer->degree >= 180 && map->gamer->degree < 360)
+		map->gamer->facing_down = 1;
+	else
+		map->gamer->facing_down = 0;
+	if (map->gamer->degree <= 90 || map->gamer->degree > 270)
+		map->gamer->facing_right = 1;
+	else
+		map->gamer->facing_right = 0;
+	if (map->gamer->degree > 90 && map->gamer->degree <= 270)
+		map->gamer->facing_left = 1;
+	else
+		map->gamer->facing_left = 0;
 		if (!(draw_wall3(map, str)))
 			return (0);
 		map->gamer->degree -= (double)ALPHA / (double)PROJ_PLANE_X;

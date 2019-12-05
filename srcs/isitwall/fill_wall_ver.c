@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 16:22:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 15:19:18 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/05 18:32:25 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fill_wall_ver(t_map *map, t_pos *wall_ver)
 		printf("map->gamer->unitx : %d\nmap->gamer->unity : %d\n\n", map->gamer->unitx, map->gamer->unity);
 	}
 	if (map->gamer->facing_right)
-		wall_ver->unitx = ((int)(map->gamer->unitx / BLOCK_SIZE)
+		wall_ver->unitx = ((map->gamer->unitx / BLOCK_SIZE)
 		* BLOCK_SIZE) + BLOCK_SIZE;
 	else
 		wall_ver->unitx = ((map->gamer->unitx / BLOCK_SIZE)
@@ -39,7 +39,7 @@ void	fill_wall_ver(t_map *map, t_pos *wall_ver)
 			wall_ver->unitx += BLOCK_SIZE;
 		else
 			wall_ver->unitx -= BLOCK_SIZE;
-		wall_ver->unity -= BLOCK_SIZE * tan(map->gamer->degree * M_PI / 180.0);
+		wall_ver->unity += BLOCK_SIZE * tan(map->gamer->degree * M_PI / 180.0);
 		wall_ver->posx = wall_ver->unitx / BLOCK_SIZE;
 		wall_ver->posy = wall_ver->unity / BLOCK_SIZE;
 	}
