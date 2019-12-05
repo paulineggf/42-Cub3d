@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 18:18:49 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/05 18:41:28 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define ALPHA			60
 # define BLOCK_SIZE 	64
 # define BUFFER_CUB		33
-# define PROJ_PLANE_X	320
-# define PROJ_PLANE_Y	200
+# define PROJ_PLANE_X	1920
+# define PROJ_PLANE_Y	1080
 
 typedef struct	s_pos
 {

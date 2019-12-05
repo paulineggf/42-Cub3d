@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:04:39 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 18:26:32 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/05 18:35:14 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver)
 	+ pow((double)map->gamer->unity - (double)wall_hor->unity, 2.0);
 	wall_ver->dis = pow((double)map->gamer->unitx - (double)wall_ver->unitx, 2.0)
 	+ pow((double)map->gamer->unity - (double)wall_ver->unity, 2.0);
-	if (map->gamer->beta == 30)
-	{
+//	if (map->gamer->beta == 30)
+//	{
 	if (wall_hor->dis == wall_ver->dis)
 	{
 		printf("equal dis : %f && %f\n", wall_hor->dis, wall_ver->dis);
 	}
-	}
+//	}
 	if (wall_hor->dis < wall_ver->dis)
 	{
 		wall_hor->dis = sqrt(wall_hor->dis);
