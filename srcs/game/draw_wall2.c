@@ -6,25 +6,14 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 16:13:45 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/04 16:48:09 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/05 15:42:49 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int		draw_wall3(t_map *map, unsigned int *str)
+static void		color(t_map *map, t_pos *wall)
 {
-	int		tmp;
-	t_pos	*wall;
-
-	if (!(wall = is_wall(map)))
-		return (0);
-	wall->slice_height = (double)(BLOCK_SIZE)
-	/ (wall->dis * cos((double)(map->gamer->beta * M_PI / 180.0)))
-	* (map->dis_proj_plane);
-	map->ptr->y = (PROJ_PLANE_Y / 2) - (wall->slice_height / 2);
-	if (map->ptr->y < 0 || map->ptr->y > PROJ_PLANE_Y)
-		map->ptr->y = 0;
 	if (wall->hor)
 		map->ptr->color = 0xF6582B;
 	else
@@ -39,6 +28,39 @@ static int		draw_wall3(t_map *map, unsigned int *str)
 		map->ptr->color = 0x39F70F;
 	if (map->gamer->degree == 360)
 		map->ptr->color = 0x358974;
+}
+
+static int		draw_wall3(t_map *map, unsigned int *str)
+{
+	int		tmp;
+	t_pos	*wall;
+
+	if (!(wall = is_wall(map)))
+		return (0);
+	//if (map->gamer->beta == 30)
+	//	printf("wall->unitx : %f\nwall->unity : %f\n", wall->unitx, wall->unity);
+	//if (wall->posx < 0 || wall->posx > map->x || wall->posy < 0 || wall->posy > map->y)
+	//	printf("wall->unitx : %f\nwall->unity : %f\n", wall->unitx, wall->unity);
+	wall->slice_height = (double)(BLOCK_SIZE)
+	/ (wall->dis * cos((double)(map->gamer->beta * M_PI / 180.0)))
+	* (map->dis_proj_plane);
+	if (map->gamer->beta == 30)
+	{
+		printf("degree 2: %f\n", map->gamer->degree);
+		printf("wall->unitx : %d\nwall->unity : %d\nwall->posx : %d\nwall->posy : %d\n", wall->unitx, wall->unity, wall->posx, wall->posy);
+		printf("wall->dis 1: %f\nwall->dis 2 : %f\n", wall->dis, wall->dis * cos((double)(map->gamer->beta * M_PI / 180.0)));
+		printf("wall->slice_height : %f\n", wall->slice_height);
+		if (wall->hor)
+			printf("wall hor\n\n");
+		if (wall->ver)
+			printf("wall->ver\n\n");
+	}
+	map->ptr->y = (PROJ_PLANE_Y / 2) - (wall->slice_height / 2);
+	if (map->gamer->beta == 30)
+		printf("map->ptr->y : %d\n\n\n", map->ptr->y);
+	if (map->ptr->y < 0 || map->ptr->y > PROJ_PLANE_Y)
+		map->ptr->y = 0;
+	color(map, wall);
 	tmp = map->ptr->y;
 	while (map->ptr->y <= tmp + wall->slice_height
 	&& map->ptr->y < PROJ_PLANE_Y)
@@ -66,6 +88,14 @@ int				draw_wall2(t_map *map, unsigned int *str)
 			map->gamer->degree -= 360;
 		if (map->gamer->degree < 0)
 			map->gamer->degree += 360;
+		if (map->gamer->degree >= 0 && map->gamer->degree < 180)
+			map->gamer->facing_up = 1;
+		if (map->gamer->degree >= 180 && map->gamer->degree < 360)
+			map->gamer->facing_down = 1;
+		if (map->gamer->degree <= 90 || map->gamer->degree > 270)
+			map->gamer->facing_right = 1;
+		if (map->gamer->degree > 90 && map->gamer->degree <= 270)
+			map->gamer->facing_left = 1;
 		if (!(draw_wall3(map, str)))
 			return (0);
 		map->gamer->degree -= (double)ALPHA / (double)PROJ_PLANE_X;
