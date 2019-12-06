@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_wall.c                                        :+:      :+:    :+:   */
+/*   define_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/27 17:20:56 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/02 20:54:39 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/06 17:34:39 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/06 17:37:04 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_pos	*free_wall(t_pos *ret, t_pos **wall)
+void	define_color(t_map *map, int side)
 {
-	free(*wall);
-	*wall = NULL;
-	return (ret);
+	map->ptr->color = 0x744044;
+	if (side == 1)
+		map->ptr->color /= 2;
 }

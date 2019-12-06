@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 16:22:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 18:32:25 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/06 14:54:10 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	fill_wall_ver(t_map *map, t_pos *wall_ver)
 	* tan(map->gamer->degree * M_PI / 180.0);
 	wall_ver->posx = wall_ver->unitx / BLOCK_SIZE;
 	wall_ver->posy = wall_ver->unity / BLOCK_SIZE;
-	if (map->gamer->beta == 30)
+if (map->gamer->beta < 30 && map->gamer->beta > 29.50) 
 		printf("wall_ver->unitx : %d\nwall_ver->unity : %d\nwall_ver->posx : %d\nwall_ver->posy : %d\n\n", wall_ver->unitx, wall_ver->unity, wall_ver->posx, wall_ver->posy);	
 	while (wall_ver->posy >= 0 && wall_ver->posx >= 0 && wall_ver->posy < map->y
 	&& wall_ver->posx < map->x && map->map[wall_ver->posy][wall_ver->posx] != 1)
@@ -43,7 +43,7 @@ void	fill_wall_ver(t_map *map, t_pos *wall_ver)
 		wall_ver->posx = wall_ver->unitx / BLOCK_SIZE;
 		wall_ver->posy = wall_ver->unity / BLOCK_SIZE;
 	}
-	if (map->gamer->beta == 30)
+if (map->gamer->beta < 30 && map->gamer->beta > 29.50) 
 		printf("wall_ver->unitx : %d\nwall_ver->unity : %d\nwall_ver->posx : %d\nwall_ver->posy : %d\n\n", wall_ver->unitx, wall_ver->unity, wall_ver->posx, wall_ver->posy);	
 
 }

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:56:49 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/02 21:59:54 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:43:01 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ int			init_map(char *av, t_map *map)
 	if (fill_map(fd, map) == -1)
 		return (ft_close(fd));
 	close(fd);
-	map->dis_proj_plane = (double)(((double)PROJ_PLANE_X / 2.0)
-	/ tan((ALPHA / 2) * M_PI / 180.0));
 	return (1);
 }

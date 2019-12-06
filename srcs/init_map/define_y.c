@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:57:35 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/26 18:28:13 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/06 18:38:49 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	define_ybis(int fd, char *buf, int *i, t_map *map)
 
 	while ((ret = read(fd, buf, BUFFER_CUB - 1)) > 0)
 	{
+		*i = 0;
 		buf[ret] = '\0';
 		while (buf[*i])
 		{

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 18:41:28 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/06 19:10:02 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,29 @@
 # define ALPHA			60
 # define BLOCK_SIZE 	64
 # define BUFFER_CUB		33
-# define PROJ_PLANE_X	1920
-# define PROJ_PLANE_Y	1080
+# define RES_X			1920
+# define RES_Y			1080
 
 typedef struct	s_pos
 {
-	int			posx;
-	int			posy;
-	int			unitx;
-	int			unity;
-	double		degree;
+	double		posx;
+	double		posy;
+	double		dirx;
+	double		diry;
+	double		planex;
+	double		planey;
+	double		camerax;
+	double		raydirx;
+	double		raydiry;
+	double		sidedistx;
+	double		sidedisty;
+	int			stepx;
+	int			stepy;
+	double		perpwalldist;
+	int			lineheight;
+	int			drawstart;
+	int			drawend;
 	double		beta;
-	int			facing_up;
-	int			facing_down;
-	int			facing_right;
-	int			facing_left;
-	int			hor;
-	int			ver;
-	double		slice_height;
-	double		dis;
 }				t_pos;
 
 typedef struct	s_win
@@ -68,6 +72,8 @@ typedef struct	s_map
 	int			y;
 	double		dis_proj_plane;
 	int			**map;
+	int			hor;
+	int			ver;
 	t_win		*ptr;
 	t_pos		*gamer;
 }				t_map;
@@ -80,17 +86,11 @@ int		ft_close(int fd);
 int		fill_map(int fd, t_map *map);
 void	init_pos(t_map *map, int orientation, int x, int y);
 int		launch_game(t_map *map);
-t_pos	*is_wall(t_map *map);
-t_pos	*free_wall(t_pos *ret, t_pos **wall);
 int		draw_wall(int key, void *param);
-void	fill_wall_hor(t_map *map, t_pos *wall_hor);
-void	fill_wall_ver(t_map *map, t_pos *wall_ver);
-t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver);
-int		draw_wall2(t_map *map, unsigned int *str);
-void	move_gamer(int key, t_map *map);
-void	orientation(t_map *map);
-int		move_forward(t_map *map);
-int		move_back(t_map *map);
 int		main(int argc, char **argv);
+void	define_dis(t_map *map, unsigned int *str);
+void	define_color(t_map *map, int side);
+void	define_height(t_map *map);
+void	define_diswall(t_map *map, int side, int mapx, int mapy);
 
 #endif

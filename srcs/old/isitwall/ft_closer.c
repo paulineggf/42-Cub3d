@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:04:39 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 18:35:14 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/06 12:51:24 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver)
 		//printf("map->mapy : %d\n", map->y);
 		wall_ver->dis = sqrt(pow((double)map->gamer->unitx - (double)wall_ver->unitx, 2.0)
 		+ pow((double)map->gamer->unity - (double)wall_ver->unity, 2.0));
-		return (free_wall(wall_ver, &wall_hor));
+		return (free_wall(wall_ver, &wall_hor, map));
 	}
 	if (wall_ver->posx < 0 || wall_ver->posx >= map->x
 	|| wall_ver->posy < 0 || wall_ver->posy >= map->y)
@@ -36,7 +36,7 @@ t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver)
 		//printf("map->mapy : %d\n", map->y);
 		wall_hor->dis = sqrt(pow((double)map->gamer->unitx - (double)wall_hor->unitx, 2.0)
 		+ pow((double)map->gamer->unity - (double)wall_hor->unity, 2.0));
-		return (free_wall(wall_hor, &wall_ver));
+		return (free_wall(wall_hor, &wall_ver, map));
 	}
 	wall_hor->dis = pow((double)map->gamer->unitx - (double)wall_hor->unitx, 2.0)
 	+ pow((double)map->gamer->unity - (double)wall_hor->unity, 2.0);
@@ -46,14 +46,26 @@ t_pos	*ft_closer(t_map *map, t_pos *wall_hor, t_pos *wall_ver)
 //	{
 	if (wall_hor->dis == wall_ver->dis)
 	{
-		printf("equal dis : %f && %f\n", wall_hor->dis, wall_ver->dis);
+		//if (map->gamer->degree == 0)
+		//map->ptr->color = 0xF7F40F;
+		printf("equal dis : %f && %f, map_hor:%d, map_ver:%d\n", wall_hor->dis, wall_ver->dis, map->hor, map->ver);	
+		if (map->hor)
+		{
+			wall_hor->dis = sqrt(wall_hor->dis);
+			return (free_wall(wall_hor, &wall_ver, map));
+		}
+		else if (map->ver)
+		{
+			wall_ver->dis = sqrt(wall_ver->dis);
+			return (free_wall(wall_ver, &wall_hor, map));
+		}
 	}
 //	}
 	if (wall_hor->dis < wall_ver->dis)
 	{
 		wall_hor->dis = sqrt(wall_hor->dis);
-		return (free_wall(wall_hor, &wall_ver));
+		return (free_wall(wall_hor, &wall_ver, map));
 	}
 	wall_ver->dis = sqrt(wall_ver->dis);
-	return (free_wall(wall_ver, &wall_hor));
+	return (free_wall(wall_ver, &wall_hor, map));
 }

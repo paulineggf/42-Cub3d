@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 14:45:01 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:42:43 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ int		main(int argc, char **argv)
 			return (0);
 		map->ptr->mlx = mlx_init();
 		map->ptr->win = mlx_new_window(map->ptr->mlx,
-		PROJ_PLANE_X, PROJ_PLANE_Y, "Cub3D");
-		map->ptr->color = 0xFF6F8F;
+		RES_X, RES_Y, "Cub3D");
 		launch_game(map);
 	}
 	return (0);
