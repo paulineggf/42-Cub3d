@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:46:27 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/06 19:50:57 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/07 19:26:19 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,55 +24,83 @@ static void		define_wall(t_map *map)
 	hit = 0;
 	mapx = (int)map->gamer->posx;
 	mapy = (int)map->gamer->posy;
-	deltadistx = sqrt(1 + (map->gamer->raydiry * map->gamer->raydiry) / (map->gamer->raydirx * map->gamer->raydirx));
-	deltadisty = sqrt(1 + (map->gamer->raydirx * map->gamer->raydirx) / (map->gamer->raydiry * map->gamer->raydiry));
+	//deltadistx = sqrt(1 + (map->gamer->raydiry * map->gamer->raydiry)
+	/// (map->gamer->raydirx * map->gamer->raydirx));
+	//deltadisty = sqrt(1 + (map->gamer->raydirx * map->gamer->raydirx)
+	/// (map->gamer->raydiry * map->gamer->raydiry));
+	//printf("deltax %f\n", deltadistx);
+	//printf("deltay %f\n", deltadisty);
+	deltadistx = fabs(1 / map->gamer->raydirx);
+//	printf("deltax %f\n", deltadistx);
+	deltadisty = fabs(1 / map->gamer->raydiry);
+//	printf("deltay %f\n", deltadisty);
 	if (map->gamer->raydirx < 0)
 	{
+	//	printf("raydirx < 0\n");
 		map->gamer->stepx = -1;
-		map->gamer->sidedistx = ((double)map->gamer->posx - (double)mapx) * deltadistx;
+		map->gamer->sidedistx = (map->gamer->posx - mapx)
+		* deltadistx;
 	}
 	else
 	{
+	//	printf("raydirx > 0\n");
 		map->gamer->stepx = 1;
-		map->gamer->sidedistx = ((double)mapx + 1.0 - (double)map->gamer->posx) * deltadistx;
+		map->gamer->sidedistx = (mapx + 1.0 - map->gamer->posx)
+		* deltadistx;
 	}
 	if (map->gamer->raydiry < 0)
 	{
+	//	printf("raydiry < 0\n");
 		map->gamer->stepy = -1;
-		map->gamer->sidedisty = ((double)map->gamer->posy - (double)mapy) * deltadisty;
+	//	map->gamer->sidedisty = (mapy + 1.0 - map->gamer->posy)
+	//	* deltadisty;
+		map->gamer->sidedisty = (map->gamer->posy - mapy)
+		* deltadisty;
 	}
 	else
 	{
+		//printf("raydiry > 0\n");
 		map->gamer->stepy = 1;
-		map->gamer->sidedisty = ((double)mapy + 1.0 - (double)map->gamer->posy) * deltadisty;
+	//	map->gamer->sidedisty = (mapy + 1.0 - map->gamer->posy)
+	//	* deltadisty;
+		map->gamer->sidedisty = (mapy + 1.0 - map->gamer->posy)
+		* deltadisty;
 	}
+/*	printf("sidedistx : %f\n", map->gamer->sidedistx);
+	printf("sidedisty : %f\n", map->gamer->sidedisty);
+	printf("stepx : %d %% stepy : %d\n", map->gamer->stepx, map->gamer->stepy);*/
 	while (hit == 0)
 	{
 		if (map->gamer->sidedistx < map->gamer->sidedisty)
 		{
+		//	printf("Here X\n");
 			map->gamer->sidedistx += deltadistx;
 			mapx += map->gamer->stepx;
 			side = 0;
 		}
 		else
 		{
+		//	printf("Here Y\n");
 			map->gamer->sidedisty += deltadisty;
 			mapy += map->gamer->stepy;
 			side = 1;
 		}
-		printf("map->x : %d && map->y : %d\n", map->x, map->y);
+	/*	printf("map->x : %d && map->y : %d\n", map->x, map->y);
 		printf("posy : %f && posy : %f\n", map->gamer->posx, map->gamer->posy);
 		printf("mapx : %d && mapy : %d\n", mapx, mapy);
-		printf("map->map[%d][%d] = %d\n", mapy, mapx, map->map[mapy][mapx]);
+		printf("map->map[%d][%d] = %d\n", mapy, mapx, map->map[mapy][mapx]);*/
 		if (map->map[mapy][mapx] == 1)
 			hit = 1;
-		printf("hit = %d\n", hit);
+	/*	printf("sidedistx : %f\n", map->gamer->sidedistx);
+		printf("sidedisty : %f\n", map->gamer->sidedisty);
+		printf("stepx : %d %% stepy : %d\n", map->gamer->stepx, map->gamer->stepy);
+		printf("hit = %d\n\n", hit);*/
 	}
-	printf("side : %d\n", side);
-	define_diswall(map, side, mapx - 1, mapy - 1);
+//	printf("side : %d\n", side);
+	define_diswall(map, side, mapx, mapy);
 	define_height(map);
 	define_color(map, side);
-	printf("--------------------------------------------------\n");
+//	printf("--------------------------------------------------\n");
 }
 
 void			define_dis(t_map *map, unsigned int *str)
@@ -95,23 +123,22 @@ void			define_dis(t_map *map, unsigned int *str)
 			j++;
 		}
 		i++;
-	}
-	return ;*/
+	}*/
+//	return ;
+	//printf("dirx : %f && diry : %f\n", map->gamer->dirx, map->gamer->diry);
 	map->gamer->beta = 30;
 	x = 0;
 	while (x < RES_X)
 	{
 
-		map->gamer->camerax = 2.0 * (((double)x) / ((double)RES_X - 1.0));
-	//	map->gamer->raydirx = (map->gamer->dirx + map->gamer->planex)
-	//	* x;
-	//	map->gamer->raydiry = (map->gamer->diry + map->gamer->planey)
-	//	* x;
-		map->gamer->raydirx = (map->gamer->dirx + map->gamer->planex)
-		* map->gamer->camerax;
-		map->gamer->raydiry = (map->gamer->diry + map->gamer->planey)
-		* map->gamer->camerax;
-		printf("raydirx : %f && raydiry : %f\n", map->gamer->raydirx, map->gamer->raydiry);
+		map->gamer->camerax = 2 * x / (double)RES_X - 1.0;
+		map->gamer->raydirx = map->gamer->dirx + map->gamer->planex
+								* map->gamer->camerax;
+		map->gamer->raydiry = map->gamer->diry + map->gamer->planey
+								* map->gamer->camerax;
+		//printf("raydirx : %f && raydiry : %f\n",
+		//map->gamer->raydirx, map->gamer->raydiry);
+	//	break;
 		define_wall(map);
 		while (map->gamer->drawstart <= map->gamer->drawend)
 		{
@@ -119,12 +146,15 @@ void			define_dis(t_map *map, unsigned int *str)
 			+ x] = map->ptr->color;
 			map->gamer->drawstart += 1;
 		}
-		//x += 0.66 / (double)RES_X;
+	//	break;
+	//	printf("x : %d\n", x);
 		x++;
 		map->gamer->stepx = 0;
 		map->gamer->stepy = 0;
-		map->gamer->sidedistx = 0.0;
-		map->gamer->sidedisty = 0.0;
-		map->gamer->beta -= 0.66 / (double)RES_X;
+	//	map->gamer->sidedistx = 0.0;
+	//	map->gamer->sidedisty = 0.0;
+		map->gamer->beta -= 60.0 / (double)RES_X;
+	//	printf("beta : %f\n", map->gamer->beta);
+	//	printf("disprojplane : %f\n", map->dis_proj_plane);
 	}
 }

@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/06 17:45:28 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/07 19:23:32 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ SRCS_GAME =	launch_game.c 			\
 			define_dis.c 			\
 			define_color.c 			\
 			define_height.c 		\
-			define_diswall.c
+			define_diswall.c 		\
+			release_key.c  			\
+			move_gamer.c
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
 SRCS2 = $(addprefix $(PATH_INIT), $(SRCS_INIT))

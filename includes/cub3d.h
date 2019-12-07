@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/06 19:10:02 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/07 19:33:06 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,16 @@ typedef struct	s_pos
 	int			stepx;
 	int			stepy;
 	double		perpwalldist;
-	int			lineheight;
+	double		lineheight;
 	int			drawstart;
 	int			drawend;
 	double		beta;
+	int			av;
+	int			re;
+	int			ga;
+	int			dr;
+	int			rdr;
+	int			rga;
 }				t_pos;
 
 typedef struct	s_win
@@ -92,5 +98,7 @@ void	define_dis(t_map *map, unsigned int *str);
 void	define_color(t_map *map, int side);
 void	define_height(t_map *map);
 void	define_diswall(t_map *map, int side, int mapx, int mapy);
+int		release_key(int key, void *param);
+void	move_gamer(t_map *map);
 
 #endif
