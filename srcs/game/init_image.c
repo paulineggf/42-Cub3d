@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/09 16:44:23 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/09 19:04:09 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int			init_image(int key, void *param)
 
 	map = (t_map*)param;
 	init_key(key, map);
-	move_gamer(map);
+	if (!(move_gamer(map)))
+		return (0);
 	map->ptr->img = mlx_new_image(map->ptr->mlx, RES_X, RES_Y);
 	str = (unsigned int*)mlx_get_data_addr(map->ptr->img, &map->ptr->b_p,
 	&map->ptr->size_l, &map->ptr->endian);

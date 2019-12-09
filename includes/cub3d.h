@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/09 17:26:52 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/09 19:18:28 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,14 @@ void	define_color(t_map *map);
 void	define_height(t_map *map);
 void	define_diswall(t_map *map);
 int		release_key(int key, void *param);
-void	move_gamer(t_map *map);
+int		move_gamer(t_map *map);
 void	define_wall(t_map *map);
 void	define_sidedistx(t_map *map);
 void	define_sidedisty(t_map *map);
 void	define_xy(t_map *map);
-void	move_forward_retreat(t_map *map);
-void	move_left_right(t_map *map);
+int		move_forward_retreat(t_map *map);
+int		move_left(t_map *map);
+int		move_right(t_map *map);
 void	rotate_right(t_map *map);
 void	rotate_left(t_map *map);
 void	fill_str(t_map *map, unsigned int *str);

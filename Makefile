@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/09 16:44:37 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/09 19:19:04 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRCS_GAME =	launch_game.c 			\
 			rotate_left.c 			\
 			rotate_right.c 			\
 			move_forward_retreat.c  \
-			move_left_right.c 		\
+			move_left.c 			\
+			move_right.c 			\
 			init_key.c 				\
 			define_sidedistx.c 		\
 			define_sidedisty.c		\
