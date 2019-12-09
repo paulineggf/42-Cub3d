@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define_color.c                                     :+:      :+:    :+:   */
+/*   define_sidedisty.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 17:34:39 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/09 15:03:00 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/09 14:57:48 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/09 17:26:26 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	define_color(t_map *map)
+void	define_sidedisty(t_map *map)
 {
-	map->ptr->color = 0x744044;
-	if (map->gamer->side == 1)
-		map->ptr->color /= 2;
+	if (map->gamer->raydiry < 0)
+	{
+		map->gamer->stepy = -1;
+		map->gamer->sidedisty = (map->gamer->posy - map->gamer->mapy)
+		* map->gamer->deltadisty;
+	}
+	else
+	{
+		map->gamer->stepy = 1;
+		map->gamer->sidedisty = (map->gamer->mapy + 1.0 - map->gamer->posy)
+		* map->gamer->deltadisty;
+	}
 }
