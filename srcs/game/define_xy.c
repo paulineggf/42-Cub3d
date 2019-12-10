@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 14:59:24 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/09 18:12:59 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/10 14:35:46 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,4 @@ void	define_xy(t_map *map)
 		if (map->map[map->gamer->mapy][map->gamer->mapx] == 1)
 			hit = 1;
 	}
-//	printf("mapx = %d && mapy = %d\n", map->gamer->mapx, map->gamer->mapy);
-//	printf("%f - %f = %f\n\n", map->gamer->sidedistx, map->gamer->posx, map->gamer->sidedistx - map->gamer->posx);
 }

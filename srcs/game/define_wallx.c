@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define_diswall.c                                   :+:      :+:    :+:   */
+/*   define_wallx.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/06 17:23:52 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/10 17:50:53 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/10 14:36:46 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/10 19:15:38 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	define_diswall(t_map *map)
+void	define_wallx(t_map *map)
 {
 	if (map->gamer->side == 0)
-		map->gamer->perpwalldist =
-		((double)map->gamer->mapx - (double)map->gamer->posx
-		+ ((1.0 - (double)map->gamer->stepx) / 2.0)) / map->gamer->raydirx;
+		map->gamer->wallx = map->gamer->posy + map->gamer->perpwalldist
+		* map->gamer->raydiry;
 	else
-		map->gamer->perpwalldist =
-		((double)map->gamer->mapy - (double)map->gamer->posy
-		+ ((1.0 - (double)map->gamer->stepy) / 2.0)) / map->gamer->raydiry;
+		map->gamer->wallx = map->gamer->posx + map->gamer->perpwalldist
+		* map->gamer->raydirx;
+	map->gamer->wallx = floor(map->gamer->wallx);
 }

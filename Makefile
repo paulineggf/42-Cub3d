@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/09 19:19:04 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/10 18:02:36 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ SRCS_GAME =	launch_game.c 			\
 			define_sidedisty.c		\
 			define_xy.c 			\
 			draw_wall.c 			\
-			draw_sky_ground.c 
+			draw_sky_ground.c 		\
+			define_wallx.c 			\
+			init_texture.c
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
 SRCS2 = $(addprefix $(PATH_INIT), $(SRCS_INIT))
