@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:38:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/11 16:33:24 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/11 18:34:13 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_sky_ground(t_map *map)
 	ground = 0x133A30;
 	while (x < ((map->ptr->size_l / 4) * RES_Y) / 2)
 	{
-		map->ptr->str[x] = sky;
+		map->ptr->str[x] = map->text->sky[x];
 		x += 1;
 	}
 	while (x < (map->ptr->size_l / 4) * (RES_Y))
