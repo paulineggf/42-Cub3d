@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/10 18:39:30 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/11 15:44:40 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,15 @@
 int			init_image(int key, void *param)
 {
 	t_map			*map;
-	unsigned int	*str;
 
 	map = (t_map*)param;
 	init_key(key, map);
 	if (!(move_gamer(map)))
 		return (0);
 	map->ptr->img = mlx_new_image(map->ptr->mlx, RES_X, RES_Y);
-	str = (unsigned int*)mlx_get_data_addr(map->ptr->img, &map->ptr->b_p,
-	&map->ptr->size_l, &map->ptr->endian);
-	fill_str(map, str);
+	map->ptr->str = (unsigned int*)mlx_get_data_addr(map->ptr->img,
+	&map->ptr->b_p, &map->ptr->size_l, &map->ptr->endian);
+	fill_str(map);
 	mlx_put_image_to_window(map->ptr->mlx,
 	map->ptr->win, map->ptr->img, 0, 0);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/11 11:41:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/11 15:43:07 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct	s_pos
 	double		perpwalldist;
 	double		lineheight;
 	int			drawstart;
+	int			real_drawstart;
 	int			drawend;
 	double		beta;
 	int			forward;
@@ -64,7 +65,7 @@ typedef struct	s_pos
 	double		wallx;
 }				t_pos;
 
-typedef struct	s_win
+typedef struct		s_win
 {
 	int				x;
 	int				y;
@@ -73,22 +74,29 @@ typedef struct	s_win
 	void			*mlx;
 	void			*win;
 	void			*img;
-	void			*texture;
+	void			*n_text;
+	void			*s_text;
+	void			*e_text;
+	void			*w_text;
 	int				b_p;
 	int				size_l;
 	int				endian;
 	unsigned int	*str;
-}				t_win;
+	unsigned int	*str_n;
+	unsigned int	*str_s;
+	unsigned int	*str_e;
+	unsigned int	*str_w;
+}					t_win;
 
 typedef struct	s_map
 {
-	int			x;
-	int			y;
-	int			**map;
-	t_win		*ptr;
-	t_pos		*gamer;
-	t_win		*text;
-}				t_map;
+	int				x;
+	int				y;
+	int				**map;
+	t_win			*ptr;
+	t_pos			*gamer;
+	t_win			*text;
+}					t_map;
 
 int				malloc_map(t_map *map);
 int				init_map(char *av, t_map *map);
@@ -115,9 +123,9 @@ int				move_left(t_map *map);
 int				move_right(t_map *map);
 void			rotate_right(t_map *map);
 void			rotate_left(t_map *map);
-void			fill_str(t_map *map, unsigned int *str);
-void			draw_wall(t_map *map, unsigned int *str, int *x);
-void			draw_sky_ground(t_map *map, unsigned int *str);
+void			fill_str(t_map *map);
+void			draw_wall(t_map *map, int *x);
+void			draw_sky_ground(t_map *map);
 void			define_wallx(t_map *map);
 void			init_texture(t_map *map);
 
