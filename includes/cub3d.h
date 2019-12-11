@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/10 19:12:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/11 11:41:27 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,18 @@ typedef struct	s_pos
 
 typedef struct	s_win
 {
-	int			x;
-	int			y;
-	int			i;
-	int			color;
-	void		*mlx;
-	void		*win;
-	void		*img;
-	void		*texture;
-	int			b_p;
-	int			size_l;
-	int			endian;
-	unsigned int *str;
+	int				x;
+	int				y;
+	int				i;
+	int				color;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	void			*texture;
+	int				b_p;
+	int				size_l;
+	int				endian;
+	unsigned int	*str;
 }				t_win;
 
 typedef struct	s_map

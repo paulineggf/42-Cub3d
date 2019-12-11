@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 14:36:46 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/10 19:15:38 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/11 10:28:24 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	define_wallx(t_map *map)
 	else
 		map->gamer->wallx = map->gamer->posx + map->gamer->perpwalldist
 		* map->gamer->raydirx;
-	map->gamer->wallx = floor(map->gamer->wallx);
+	map->gamer->wallx -= floor(map->gamer->wallx);
 }
