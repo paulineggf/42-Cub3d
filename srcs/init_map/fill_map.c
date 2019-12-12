@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 14:45:54 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 15:14:34 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/12 19:38:27 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void		fill_mapbis(char *buf, int *i, int *j, t_map *map)
 	{
 		while (buf[k] && *j < map->x)
 		{
-		//	if (buf[k] == '2')
-			//	map->gamer->sprite++;
+			if (buf[k] == '2')
+				map->sprite++;
 			if (buf[k] == 'N' || buf[k] == 'W'
 			|| buf[k] == 'E' || buf[k] == 'S')
 			{

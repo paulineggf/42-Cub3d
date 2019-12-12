@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 18:50:48 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/12 19:42:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,17 @@ typedef struct		s_pos
 	double			deltadisty;
 	int				side;
 	double			wallx;
-	int				**sprite;
-	int				size_sprite;
-	int				i_sprite;
 }					t_pos;
+
+typedef	struct		s_sprite
+{
+	int				mapx;
+	int				mapy;
+	double			distance;
+	double			height;
+	double			x;
+	int				i;
+}					t_sprite;
 
 typedef struct		s_win
 {
@@ -103,10 +110,12 @@ typedef struct		s_map
 	int				x;
 	int				y;
 	int				**map;
+	int				size_sprite;
 	t_win			*ptr;
 	t_pos			*gamer;
 	t_win			*text;
 	t_list			*garbage_collector;
+	t_sprite		**sprite;
 }					t_map;
 
 void				malloc_map(t_map *map);
