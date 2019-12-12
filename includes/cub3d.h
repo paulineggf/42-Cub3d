@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 16:53:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/12 18:50:48 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,7 @@ void				ft_close(int fd, t_map *map);
 int					fill_map(int fd, t_map *map);
 void				init_pos(t_map *map, int orientation, int x, int y);
 int					launch_game(t_map *map);
-int					init_image(int key, void *param);
-int					init_key(int key, t_map *map);
+int					press_key(int key, void *param);
 int					main(int argc, char **argv);
 void				define_color(t_map *map);
 void				define_height(t_map *map);
@@ -141,7 +140,7 @@ void				define_wallx(t_map *map);
 void				init_texture(t_map *map);
 void				exit_failure(char *str, t_map *map);
 void				easy_malloc(void **content, size_t n, t_map *map);
-int					refresh(t_map *map);
+int					init_image(t_map *map);
 
 
 #endif

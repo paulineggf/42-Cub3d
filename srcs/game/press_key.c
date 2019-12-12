@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_key.c                                         :+:      :+:    :+:   */
+/*   press_key.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 15:05:53 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/11 18:50:33 by pganglof         ###   ########.fr       */
+/*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/12 18:39:08 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		init_key(int key, t_map *map)
+/*
+** Q = 12
+** S = 1
+** D = 2
+** Z = 6
+** ESC = 53
+*/
+
+int			press_key(int key, void *param)
 {
+	t_map			*map;
+
+	map = (t_map*)param;
 	if (key == 12)
 		map->gamer->forward = 1;
 	if (key == 6)
@@ -26,5 +37,11 @@ int		init_key(int key, t_map *map)
 		map->gamer->rotate_left = 1;
 	if (key == 124)
 		map->gamer->rotate_right = 1;
+	if (key == 53)
+	{
+		free(map->ptr->str);
+		mlx_destroy_window(map->ptr->mlx, map->ptr->win);
+		exit_failure("\n\n   --------- END OF GAME! ---------\n\n\n", map);
+	}
 	return (1);
 }

@@ -5,26 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 16:05:06 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/12 15:59:42 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/12 18:35:18 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*
-** Q = 12
-** S = 1
-** D = 2
-** Z = 6
-** ESC = 53
-*/
-
-int			init_image(int key, void *param)
+int		init_image(t_map *map)
 {
-	t_map			*map;
-
-	map = (t_map*)param;
-	init_key(key, map);
+	if (!(move_gamer(map)))
+		return (0);
+	map->ptr->img = mlx_new_image(map->ptr->mlx, RES_X, RES_Y);
+	if (!(map->ptr->str = (unsigned int*)mlx_get_data_addr(map->ptr->img,
+	&map->ptr->b_p, &map->ptr->size_l, &map->ptr->endian)))
+		exit_failure("Malloc failure\n", map);
+	fill_str(map);
+	mlx_put_image_to_window(map->ptr->mlx,
+	map->ptr->win, map->ptr->img, 0, 0);
 	return (1);
 }

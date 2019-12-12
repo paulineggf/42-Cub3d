@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 14:35:14 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 16:51:57 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/12 17:57:24 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	easy_malloc(void **content, size_t n, t_map *map)
 	ft_bzero(*content, n);
 	if (!(new = ft_lstnew(*content)))
 		exit_failure("Malloc failure\n", map);
-	ft_lstadd_front(&(map->garbage_collector), new);
+	ft_lstadd_back(&(map->garbage_collector), new);
 }

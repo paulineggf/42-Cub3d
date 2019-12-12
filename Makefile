@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/12 16:01:00 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/12 18:43:26 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ SRCS_GAME =	launch_game.c 			\
 			move_forward_retreat.c  \
 			move_left.c 			\
 			move_right.c 			\
-			init_key.c 				\
 			define_sidedistx.c 		\
 			define_sidedisty.c		\
 			define_xy.c 			\
@@ -49,7 +48,7 @@ SRCS_GAME =	launch_game.c 			\
 			draw_sky_ground.c 		\
 			define_wallx.c 			\
 			init_texture.c 			\
-			refresh.c 	
+			press_key.c
 			
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
@@ -67,7 +66,7 @@ LIB = libft/libft.a
 MLX = minilibx_opengl_20191021/libmlx.a
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
+CFLAGS = -Wall -Wextra -Werror -g -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
 
 DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS3:.c=.d) $(SRCS4:.c=.d) 
 

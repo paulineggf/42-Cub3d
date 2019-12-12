@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 14:14:09 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 16:54:34 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/12 18:43:33 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		malloc_map(t_map *map)
 	// if (!(map->gamer->sprite = sizeof(int*) * map->gamer->size_sprite))
 	// 	return (0);
 	// i = map->gamer->size_sprite;
-	// while (i-- > 0)
+	// while (i-- > 0) 
 	// {
 	// 	if (!(map->gamer->sprite[i] = malloc(sizeof(int) * 2)))
 	// 		return (0);
