@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/11 18:20:04 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/12 16:53:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ typedef struct		s_pos
 	double			deltadisty;
 	int				side;
 	double			wallx;
+	int				**sprite;
+	int				size_sprite;
+	int				i_sprite;
 }					t_pos;
 
 typedef struct		s_win
@@ -103,13 +106,14 @@ typedef struct		s_map
 	t_win			*ptr;
 	t_pos			*gamer;
 	t_win			*text;
+	t_list			*garbage_collector;
 }					t_map;
 
-int					malloc_map(t_map *map);
-int					init_map(char *av, t_map *map);
+void				malloc_map(t_map *map);
+void				init_map(char *av, t_map *map);
 int					define_y(int fd, char *buf, t_map *map, int *ret);
-int					define_x(int fd, char *buf, t_map *map, int *ret);
-int					ft_close(int fd);
+void				define_x(int fd, char *buf, t_map *map, int *ret);
+void				ft_close(int fd, t_map *map);
 int					fill_map(int fd, t_map *map);
 void				init_pos(t_map *map, int orientation, int x, int y);
 int					launch_game(t_map *map);
@@ -132,8 +136,12 @@ void				rotate_right(t_map *map);
 void				rotate_left(t_map *map);
 void				fill_str(t_map *map);
 void				draw_wall(t_map *map, int *x);
-void				draw_sky_ground(t_map *map);
+void				draw_sky_ground(t_map *map, int *x);
 void				define_wallx(t_map *map);
 void				init_texture(t_map *map);
+void				exit_failure(char *str, t_map *map);
+void				easy_malloc(void **content, size_t n, t_map *map);
+int					refresh(t_map *map);
+
 
 #endif

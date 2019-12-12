@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/10 18:02:36 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/12 16:01:00 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ PATH_INIT = ./srcs/init_map/
 PATH_WALL = ./srcs/isitwall/
 PATH_GAME = ./srcs/game/
 
-SRCS_NAME =	main.c
+SRCS_NAME =	main.c					\
+			exit_failure.c 			\
+			easy_malloc.c 
 
 SRCS_INIT = define_x.c 				\
 			define_y.c 				\
@@ -46,7 +48,9 @@ SRCS_GAME =	launch_game.c 			\
 			draw_wall.c 			\
 			draw_sky_ground.c 		\
 			define_wallx.c 			\
-			init_texture.c
+			init_texture.c 			\
+			refresh.c 	
+			
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
 SRCS2 = $(addprefix $(PATH_INIT), $(SRCS_INIT))

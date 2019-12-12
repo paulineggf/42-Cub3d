@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 14:59:24 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/11 18:44:51 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/11 20:20:52 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ void	define_xy(t_map *map)
 		}
 		if (map->map[map->gamer->mapy][map->gamer->mapx] == 1)
 			hit = 1;
+		// if (map->map[map->gamer->mapy][map->gamer->mapx] == 2)
+		// 	stock_sprite(map);
 	}
 }

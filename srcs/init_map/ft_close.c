@@ -6,14 +6,14 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:59:16 by pganglof          #+#    #+#             */
-/*   Updated: 2019/11/26 14:13:20 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/12 16:36:39 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_close(int fd)
+void	ft_close(int fd, t_map *map)
 {
 	close(fd);
-	return (0);
+	exit_failure("Read failure\n", map);
 }
