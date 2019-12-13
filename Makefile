@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/13 17:44:14 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/13 21:36:57 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS_GAME =	launch_game.c 			\
 			stock_sprite.c 			\
 			distance_sprite.c 		\
 			sprite_height.c 		\
-			sprite_x.c
+			sprite_x.c 				\
+			draw_sprite.c
 			
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))

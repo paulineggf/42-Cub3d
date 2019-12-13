@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:31:29 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 22:06:49 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,9 @@ typedef	struct		s_sprite
 	double			distance;
 	double			height;
 	double			x;
+	int				real_drawstart;
+	int				drawstart;
+	int				drawend;
 }					t_sprite;
 
 typedef struct		s_win
@@ -112,10 +115,13 @@ typedef struct		s_win
 	void			*sprite_text;
 	int				b_p;
 	int				b_p_sky;
+	int				b_p_sprite;
 	int				size_l;
 	int				size_l_sky;
+	int				size_l_sprite;
 	int				endian;
 	int				endian_sky;
+	int				endian_sprite;
 	unsigned int	*str;
 	unsigned int	*sky;
 	unsigned int	*str_n;
@@ -175,5 +181,6 @@ void				stock_sprite(t_map *map);
 void				distance_sprite(t_map *map);
 void				sprite_height(t_map *map);
 void				sprite_x(t_map *map);
+void				draw_sprite(t_map *map);
 
 #endif

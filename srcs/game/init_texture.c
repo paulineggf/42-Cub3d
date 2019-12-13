@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:58:30 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:02:08 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 21:35:58 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static void		init_texture_sky(t_map *map)
 
 static void		init_texture3(t_map *map)
 {
-	t_list *new_s;
+	t_list	*new_s;
+	t_list	*new_sprite;
 
 	if (!(map->text.s_text = mlx_xpm_file_to_image(map->ptr.mlx,
 	"./textures_hi/anon_vert.xpm", &map->text.x, &map->text.y)))
@@ -41,6 +42,16 @@ static void		init_texture3(t_map *map)
 	if (!(new_s = ft_lstnew(map->text.str_s)))
 		exit_failure("Malloc failure\n", map);
 	ft_lstadd_front(&(map->garbage_collector), new_s);
+	if (!(map->text.sprite_text = mlx_xpm_file_to_image(map->ptr.mlx,
+	"./textures_hi/hacker.XPM", &map->text.sprite_x, &map->text.sprite_y)))
+		exit_failure("Wrong Texture\n", map);
+	if (!(map->text.str_sprite =
+	(unsigned int*)mlx_get_data_addr(map->text.sprite_text,
+	&map->text.b_p_sprite, &map->text.size_l_sprite, &map->text.endian_sprite)))
+		exit_failure("Malloc failure\n", map);
+	if (!(new_sprite = ft_lstnew(map->text.str_sprite)))
+		exit_failure("Malloc failure\n", map);
+	ft_lstadd_front(&(map->garbage_collector), new_sprite);
 }
 
 static void		init_texture2(t_map *map)
@@ -70,11 +81,8 @@ static void		init_texture2(t_map *map)
 
 void			init_texture(t_map *map)
 {
-	//t_win	*text;
 	t_list	*new_n;
 
-	//easy_malloc((void**)&text, sizeof(t_win), map);
-	//map->text = text;
 	if (!(map->text.n_text = mlx_xpm_file_to_image(map->ptr.mlx,
 	"./textures_hi/B_v-for-vend_nAkdIAig.xpm", &map->text.x, &map->text.y)))
 		exit_failure("Wrong Texture\n", map);

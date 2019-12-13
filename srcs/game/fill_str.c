@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:46:27 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:05:33 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 21:36:08 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void			fill_str(t_map *map)
 		map->gamer.stepx = 0;
 		map->gamer.stepy = 0;
 	}
-	// draw_sprite(map);
+	draw_sprite(map);
 }

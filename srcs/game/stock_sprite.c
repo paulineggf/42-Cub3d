@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 19:33:22 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:09:37 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 22:04:47 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	stock_sprite(t_map *map)
 		map->sprite[map->i]->l_raydirx = map->gamer.raydirx;
 		map->sprite[map->i]->l_raydiry = map->gamer.raydiry;
 	}
-	distance_sprite(map);
-	sprite_height(map);
-	sprite_x(map);
+//	distance_sprite(map);
+	// sprite_height(map);
+	// sprite_x(map);
 	// printf("map->i : %d\n", map->i);
 	// printf("posx : %f && posy : %f\n", map->sprite[map->i]->posx, map->sprite[map->i]->posy);
 	// printf("f_raydirx : %f && f_raydiry : %f\n", map->sprite[map->i]->f_raydirx, map->sprite[map->i]->f_raydiry);
