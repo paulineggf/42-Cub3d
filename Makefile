@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/12 18:43:26 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/13 17:44:14 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,11 @@ SRCS_GAME =	launch_game.c 			\
 			draw_sky_ground.c 		\
 			define_wallx.c 			\
 			init_texture.c 			\
-			press_key.c
+			press_key.c 			\
+			stock_sprite.c 			\
+			distance_sprite.c 		\
+			sprite_height.c 		\
+			sprite_x.c
 			
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
@@ -66,7 +70,7 @@ LIB = libft/libft.a
 MLX = minilibx_opengl_20191021/libmlx.a
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
+CFLAGS = -Wall -Wextra -Werror -g -MMD -fsanitize=address -I $(HEADERS) -I $(HEADERS2) -Ofast
 
 DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS3:.c=.d) $(SRCS4:.c=.d) 
 

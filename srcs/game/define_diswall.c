@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 17:23:52 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 17:32:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	define_diswall(t_map *map)
 {
-	if (map->gamer->side == 0)
-		map->gamer->perpwalldist =
-		((double)map->gamer->mapx - (double)map->gamer->posx
-		+ ((1.0 - (double)map->gamer->stepx) / 2.0)) / map->gamer->raydirx;
+	if (map->gamer.side == 0)
+		map->gamer.perpwalldist =
+		((double)map->gamer.mapx - (double)map->gamer.posx
+		+ ((1.0 - (double)map->gamer.stepx) / 2.0)) / map->gamer.raydirx;
 	else
-		map->gamer->perpwalldist =
-		((double)map->gamer->mapy - (double)map->gamer->posy
-		+ ((1.0 - (double)map->gamer->stepy) / 2.0)) / map->gamer->raydiry;
+		map->gamer.perpwalldist =
+		((double)map->gamer.mapy - (double)map->gamer.posy
+		+ ((1.0 - (double)map->gamer.stepy) / 2.0)) / map->gamer.raydiry;
 }

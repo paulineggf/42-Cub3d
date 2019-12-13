@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define_wall.c                                      :+:      :+:    :+:   */
+/*   sprite_height.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 14:49:55 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/13 17:37:35 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/13 17:39:36 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	define_wall(t_map *map)
+void	sprite_height(t_map *map)
 {
-	map->gamer.mapx = (int)map->gamer.posx;
-	map->gamer.mapy = (int)map->gamer.posy;
-	map->gamer.deltadistx = fabs(1 / map->gamer.raydirx);
-	map->gamer.deltadisty = fabs(1 / map->gamer.raydiry);
-	define_sidedistx(map);
-	define_sidedisty(map);
-	define_xy(map);
-	define_diswall(map);
-	define_height(map);
-	define_wallx(map);
-//	define_color(map);
+	if (map->sprite[map->i]->distance > 0)
+		map->sprite[map->i]->height = (double)RES_Y / map->sprite[map->i]->distance;
+	else
+		map->sprite[map->i]->height = ((double)RES_Y - 1.0);
 }

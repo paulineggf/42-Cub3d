@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 14:57:48 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 17:32:16 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	define_sidedisty(t_map *map)
 {
-	if (map->gamer->raydiry < 0)
+	if (map->gamer.raydiry < 0)
 	{
-		map->gamer->stepy = -1;
-		map->gamer->sidedisty = (map->gamer->posy - map->gamer->mapy)
-		* map->gamer->deltadisty;
+		map->gamer.stepy = -1;
+		map->gamer.sidedisty = (map->gamer.posy - map->gamer.mapy)
+		* map->gamer.deltadisty;
 	}
 	else
 	{
-		map->gamer->stepy = 1;
-		map->gamer->sidedisty = (map->gamer->mapy + 1.0 - map->gamer->posy)
-		* map->gamer->deltadisty;
+		map->gamer.stepy = 1;
+		map->gamer.sidedisty = (map->gamer.mapy + 1.0 - map->gamer.posy)
+		* map->gamer.deltadisty;
 	}
 }

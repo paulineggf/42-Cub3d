@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 14:59:24 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 19:32:49 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,24 @@ void	define_xy(t_map *map)
 	int		hit;
 
 	hit = 0;
+	map->i = 0;
 	while (hit == 0)
 	{
-		if (map->gamer->sidedistx < map->gamer->sidedisty)
+		if (map->gamer.sidedistx < map->gamer.sidedisty)
 		{
-			map->gamer->sidedistx += map->gamer->deltadistx;
-			map->gamer->mapx += map->gamer->stepx;
-			map->gamer->side = 0;
+			map->gamer.sidedistx += map->gamer.deltadistx;
+			map->gamer.mapx += map->gamer.stepx;
+			map->gamer.side = 0;
 		}
 		else
 		{
-			map->gamer->sidedisty += map->gamer->deltadisty;
-			map->gamer->mapy += map->gamer->stepy;
-			map->gamer->side = 1;
+			map->gamer.sidedisty += map->gamer.deltadisty;
+			map->gamer.mapy += map->gamer.stepy;
+			map->gamer.side = 1;
 		}
-		if (map->map[map->gamer->mapy][map->gamer->mapx] == 1)
+		if (map->map[map->gamer.mapy][map->gamer.mapx] == 1)
 			hit = 1;
-		if (map->map[map->gamer->mapy][map->gamer->mapx] == 2)
-		 	stock_sprite(map);
+		if (map->map[map->gamer.mapy][map->gamer.mapx] == 2)
+			stock_sprite(map);
 	}
 }

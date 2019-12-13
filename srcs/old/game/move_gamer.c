@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 11:30:00 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/05 13:31:09 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	move_gamer(int key, t_map *map)
 		if (!(move_back(map)))
 			return ;
 	if (key == 2)
-		map->gamer->degree--;
+		map->gamer.degree--;
 	if (key == 1)
-		map->gamer->degree++;
-	if (map->gamer->degree < 0)
-		map->gamer->degree += 360;
-	if (map->gamer->degree >= 360)
-		map->gamer->degree -= 360;
+		map->gamer.degree++;
+	if (map->gamer.degree < 0)
+		map->gamer.degree += 360;
+	if (map->gamer.degree >= 360)
+		map->gamer.degree -= 360;
 	orientation(map);
 }

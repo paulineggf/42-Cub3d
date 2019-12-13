@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 17:34:39 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 17:32:47 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	define_color(t_map *map)
 {
-	map->ptr->color = 0x744044;
-	if (map->gamer->side == 1)
-		map->ptr->color /= 2;
+	map->ptr.color = 0x744044;
+	if (map->gamer.side == 1)
+		map->ptr.color /= 2;
 }

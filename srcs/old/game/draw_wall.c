@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/09 14:48:24 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 18:58:28 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int			draw_wall(int key, void *param)
 	map = (t_map*)param;
 	if (key == 1 || key == 2 || key == 6 || key == 12)
 		move_gamer(key, map);
-	map->ptr->img = mlx_new_image(map->ptr->mlx, PROJ_PLANE_X, PROJ_PLANE_Y);
-	str = (unsigned int*)mlx_get_data_addr(map->ptr->img, &map->ptr->b_p,
-	&map->ptr->size_l, &map->ptr->endian);
+	map->ptr.img = mlx_new_image(map->ptr.mlx, PROJ_PLANE_X, PROJ_PLANE_Y);
+	str = (unsigned int*)mlx_get_data_addr(map->ptr.img, &map->ptr.b_p,
+	&map->ptr.size_l, &map->ptr.endian);
 	draw_wall2(map, str);
-	mlx_put_image_to_window(map->ptr->mlx,
-	map->ptr->win, map->ptr->img, 0, 0);
+	mlx_put_image_to_window(map->ptr.mlx,
+	map->ptr.win, map->ptr.img, 0, 0);
 	return (1);
 }

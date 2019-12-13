@@ -88,13 +88,13 @@ t_struct	*init_struct_window(void)
 	if (!(ptr = malloc(sizeof(t_struct))))
 		return (NULL);
 	ft_bzero(ptr, sizeof(t_struct));
-	ptr->mlx_ptr = mlx_init();
-	ptr->width = 320;
-	ptr->height = 200;
-	ptr->x = 0;
-	ptr->y = 0;
-	ptr->color = 0xFAF48F;
-	ptr->win_ptr = mlx_new_window(ptr->mlx_ptr, ptr->width, ptr->height, "TEST");
+	ptr.mlx_ptr = mlx_init();
+	ptr.width = 320;
+	ptr.height = 200;
+	ptr.x = 0;
+	ptr.y = 0;
+	ptr.color = 0xFAF48F;
+	ptr.win_ptr = mlx_new_window(ptr.mlx_ptr, ptr.width, ptr.height, "TEST");
 	return (ptr);
 }
 
@@ -104,6 +104,6 @@ int		main(void)
 
 	if (!(ptr = init_struct_window()))
 		return (0);
-	mlx_key_hook(ptr->win_ptr, deal_key, ptr);
-	mlx_loop(ptr->mlx_ptr);
+	mlx_key_hook(ptr.win_ptr, deal_key, ptr);
+	mlx_loop(ptr.mlx_ptr);
 }

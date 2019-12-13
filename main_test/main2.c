@@ -55,8 +55,8 @@ int		main()
 
 	ptr = malloc(sizeof(t_struct));
 		ft_bzero((void*)ptr, sizeof(t_struct));
-	ptr->mlx_ptr = mlx_init();
-	ptr->win_ptr = mlx_new_window(ptr->mlx_ptr, 1000, 1000, "test");
-	mlx_key_hook(ptr->win_ptr, new_img, ptr);
-	mlx_loop(ptr->mlx_ptr);
+	ptr.mlx_ptr = mlx_init();
+	ptr.win_ptr = mlx_new_window(ptr.mlx_ptr, 1000, 1000, "test");
+	mlx_key_hook(ptr.win_ptr, new_img, ptr);
+	mlx_loop(ptr.mlx_ptr);
 }

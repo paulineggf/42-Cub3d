@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/12 19:42:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/13 19:31:29 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,26 @@ typedef	struct		s_sprite
 {
 	int				mapx;
 	int				mapy;
+	double			posx;
+	double			posy;
+	double			spritex;
+	double			spritey;
+	double			indvet;
+	double			transformx;
+	double			transformy;
+	int				screenx;
+	int				drawstarty;
+	int				drawendy;
+	int				drawstartx;
+	int				drawendx;
+	int				width;
+	double			f_raydirx;
+	double			f_raydiry;
+	double			l_raydirx;
+	double			l_raydiry;
 	double			distance;
 	double			height;
 	double			x;
-	int				i;
 }					t_sprite;
 
 typedef struct		s_win
@@ -80,6 +96,8 @@ typedef struct		s_win
 	int				x;
 	int				sky_x;
 	int				sky_y;
+	int				sprite_x;
+	int				sprite_y;
 	int				y;
 	int				i;
 	int				color;
@@ -91,6 +109,7 @@ typedef struct		s_win
 	void			*e_text;
 	void			*w_text;
 	void			*sky_text;
+	void			*sprite_text;
 	int				b_p;
 	int				b_p_sky;
 	int				size_l;
@@ -103,17 +122,19 @@ typedef struct		s_win
 	unsigned int	*str_s;
 	unsigned int	*str_e;
 	unsigned int	*str_w;
+	unsigned int	*str_sprite;
 }					t_win;
 
 typedef struct		s_map
 {
 	int				x;
 	int				y;
+	int				i;
 	int				**map;
 	int				size_sprite;
-	t_win			*ptr;
-	t_pos			*gamer;
-	t_win			*text;
+	t_win			ptr;
+	t_pos			gamer;
+	t_win			text;
 	t_list			*garbage_collector;
 	t_sprite		**sprite;
 }					t_map;
@@ -150,6 +171,9 @@ void				init_texture(t_map *map);
 void				exit_failure(char *str, t_map *map);
 void				easy_malloc(void **content, size_t n, t_map *map);
 int					init_image(t_map *map);
-
+void				stock_sprite(t_map *map);
+void				distance_sprite(t_map *map);
+void				sprite_height(t_map *map);
+void				sprite_x(t_map *map);
 
 #endif
