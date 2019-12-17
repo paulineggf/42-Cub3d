@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 22:06:49 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:27:21 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef	struct		s_sprite
 	double			posy;
 	double			spritex;
 	double			spritey;
-	double			indvet;
+	double			invdet;
 	double			transformx;
 	double			transformy;
 	int				screenx;
@@ -182,5 +182,8 @@ void				distance_sprite(t_map *map);
 void				sprite_height(t_map *map);
 void				sprite_x(t_map *map);
 void				draw_sprite(t_map *map);
+void				sprite_xy(t_map *map);
+void				invdet(t_map *map);
+void				transformxy(t_map *map);
 
 #endif

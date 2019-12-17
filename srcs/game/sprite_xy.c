@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   distance_sprite.c                                  :+:      :+:    :+:   */
+/*   sprite_xy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:34:44 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 13:16:29 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/17 13:40:07 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/17 15:38:18 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		distance_sprite(t_map *map)
+void	sprite_xy(t_map *map)
 {
-	map->sprite[map->i]->distance = (map->gamer.posx -
-	map->sprite[map->i]->mapx) * (map->gamer.posx - map->sprite[map->i]->mapx)
-	+ (map->gamer.posy - map->sprite[map->i]->mapy) * (map->gamer.posy -
-	map->sprite[map->i]->mapy);
-	printf("map->sprite[%d]->distance : %f\n", map->i, map->sprite[map->i]->distance);
+	map->sprite[map->i]->spritex = map->sprite[map->i]->mapx + 0.5 - map->gamer.posx;
+	map->sprite[map->i]->spritey = map->sprite[map->i]->mapy + 0.5 - map->gamer.posy;
+	printf("map->sprite[%d]->spritex : %f\n", map->i, map->sprite[map->i]->spritex);
+	printf("map->sprite[%d]->spritey : %f\n", map->i, map->sprite[map->i]->spritey);
 }

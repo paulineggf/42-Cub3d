@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:58:30 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 21:35:58 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 12:51:59 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void		init_texture3(t_map *map)
 		exit_failure("Malloc failure\n", map);
 	ft_lstadd_front(&(map->garbage_collector), new_s);
 	if (!(map->text.sprite_text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/hacker.XPM", &map->text.sprite_x, &map->text.sprite_y)))
+	"./textures_hi/greenlight.XPM", &map->text.sprite_x, &map->text.sprite_y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text.str_sprite =
 	(unsigned int*)mlx_get_data_addr(map->text.sprite_text,

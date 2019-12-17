@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 22:03:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 22:16:51 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:43:06 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ void	draw_sprite(t_map *map)
 	x = 200;
 	while (map->i <= map->size_sprite)
 	{
+		sprite_xy(map);
 		distance_sprite(map);
+		invdet(map);
+		transformxy(map);
+		sprite_screenx(map);
 		sprite_height(map);
 		sprite_x(map);
 		map->i++;
@@ -32,7 +36,6 @@ void	draw_sprite(t_map *map)
 	map->i--;
 	while (map->i >= 0)
 	{
-		printf("map->i : %d\n", map->i);
 		if (map->sprite[map->i]->real_drawstart < 0)
 			i = abs(map->sprite[map->i]->real_drawstart);
 		else
