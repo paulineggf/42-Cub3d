@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 17:28:53 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 18:29:43 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,9 +135,11 @@ typedef struct		s_map
 {
 	int				x;
 	int				y;
+	int				stripe;
 	int				i;
 	int				**map;
 	int				size_sprite;
+	int				*zbuffer;
 	t_win			ptr;
 	t_pos			gamer;
 	t_win			text;
@@ -170,8 +172,8 @@ int					move_right(t_map *map);
 void				rotate_right(t_map *map);
 void				rotate_left(t_map *map);
 void				fill_str(t_map *map);
-void				draw_wall(t_map *map, int *x);
-void				draw_sky_ground(t_map *map, int *x);
+void				draw_wall(t_map *map);
+void				draw_sky_ground(t_map *map);
 void				define_wallx(t_map *map);
 void				init_texture(t_map *map);
 void				exit_failure(char *str, t_map *map);

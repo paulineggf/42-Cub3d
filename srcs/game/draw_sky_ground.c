@@ -6,13 +6,13 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:38:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:02:08 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 18:26:55 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_sky_ground(t_map *map, int *x)
+void	draw_sky_ground(t_map *map)
 {
 	int		textx;
 	int		y;
@@ -26,12 +26,12 @@ void	draw_sky_ground(t_map *map, int *x)
 	ground = 0x133A30;
 	while (y < RES_Y / 2)
 	{
-		map->ptr.str[((map->ptr.size_l / 4) * y) + *x] = map->text.sky[
+		map->ptr.str[((map->ptr.size_l / 4) * y) + map->stripe] = map->text.sky[
 		(((map->text.size_l_sky / 4) * ysky)
 		+ textx)];
 		y++;
 		ysky++;
 	}
 	while (y < RES_Y)
-		map->ptr.str[((map->ptr.size_l / 4) * y++) + *x] = ground;
+		map->ptr.str[((map->ptr.size_l / 4) * y++) + map->stripe] = ground;
 }
