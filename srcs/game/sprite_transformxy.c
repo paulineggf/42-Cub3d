@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   transformxy.c                                      :+:      :+:    :+:   */
+/*   sprite_transformxy.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 15:18:50 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 17:14:39 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:38:15 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	transformxy(t_map *map)
+void	sprite_transformxy(t_map *map)
 {
 	map->sprite[map->i]->transformx = map->sprite[map->i]->invdet *
 	((map->gamer.diry * map->sprite[map->i]->spritex) - (map->gamer.dirx

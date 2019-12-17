@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 17:28:53 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:36:59 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,8 +183,8 @@ void				sprite_height(t_map *map);
 void				sprite_x(t_map *map);
 void				draw_sprite(t_map *map);
 void				sprite_xy(t_map *map);
-void				invdet(t_map *map);
-void				transformxy(t_map *map);
+void				sprite_invdet(t_map *map);
+void				sprite_transformxy(t_map *map);
 void				sprite_screenx(t_map *map);
 void				sprite_drawstarty(t_map *map);
 void				sprite_drawendy(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 22:03:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 17:08:56 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:36:55 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	draw_sprite(t_map *map)
 		map->i, map->sprite[map->i]->mapx, map->i, map->sprite[map->i]->mapy);
 		sprite_xy(map);
 		distance_sprite(map);
-		invdet(map);
-		transformxy(map);
+		sprite_invdet(map);
+		sprite_transformxy(map);
 		sprite_screenx(map);
 		sprite_height(map);
 		sprite_drawstarty(map);

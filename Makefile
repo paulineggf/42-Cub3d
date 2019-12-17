@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/17 16:51:14 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/17 20:41:41 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,14 +49,13 @@ SRCS_GAME =	launch_game.c 			\
 			define_wallx.c 			\
 			init_texture.c 			\
 			press_key.c 			\
-			stock_sprite.c 			\
-			distance_sprite.c 		\
+			sprite_stock.c 			\
+			sprite_distance.c 		\
 			sprite_height.c 		\
-			sprite_x.c 				\
-			draw_sprite.c 			\
+			sprite_draw.c			\
 			sprite_xy.c 			\
-			transformxy.c 			\
-			invdet.c 				\
+			sprite_transformxy.c 	\
+			sprite_invdet.c 		\
 			sprite_screenx.c 		\
 			sprite_drawstarty.c		\
 			sprite_drawendy.c 		\
