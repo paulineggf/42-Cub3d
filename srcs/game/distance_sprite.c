@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 19:34:44 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 13:16:29 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 17:13:47 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@ void		distance_sprite(t_map *map)
 	map->sprite[map->i]->mapx) * (map->gamer.posx - map->sprite[map->i]->mapx)
 	+ (map->gamer.posy - map->sprite[map->i]->mapy) * (map->gamer.posy -
 	map->sprite[map->i]->mapy);
-	printf("map->sprite[%d]->distance : %f\n", map->i, map->sprite[map->i]->distance);
+	
+	printf("map->sprite[%d]->distance : %f\n",
+	map->i, map->sprite[map->i]->distance);
 }

@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/17 15:27:37 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/17 16:51:14 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,14 @@ SRCS_GAME =	launch_game.c 			\
 			draw_sprite.c 			\
 			sprite_xy.c 			\
 			transformxy.c 			\
-			invdet.c
+			invdet.c 				\
+			sprite_screenx.c 		\
+			sprite_drawstarty.c		\
+			sprite_drawendy.c 		\
+			sprite_drawstartx.c 	\
+			sprite_width.c			\
+			sprite_drawendx.c		\
+			sprite_loop.c
 			
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))

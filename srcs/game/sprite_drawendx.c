@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_xy.c                                        :+:      :+:    :+:   */
+/*   sprite_drawendx.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/17 13:40:07 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 17:12:19 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/17 16:34:40 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/17 16:36:42 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	sprite_xy(t_map *map)
+void	sprite_drawendx(t_map *map)
 {
-	map->sprite[map->i]->spritex = (map->sprite[map->i]->mapx + 0.5) - map->gamer.posx;
-	map->sprite[map->i]->spritey = (map->sprite[map->i]->mapy + 0.5) - map->gamer.posy;
-	printf("map->sprite[%d]->spritex : %f\n", map->i, map->sprite[map->i]->spritex);
-	printf("map->sprite[%d]->spritey : %f\n", map->i, map->sprite[map->i]->spritey);
+	map->sprite[map->i]->drawendx = map->sprite[map->i]->width / 2 + map->sprite[map->i]->screenx;
+	if (map->sprite[map->i]->drawendx >= RES_X)
+		map->sprite[map->i]->drawendx = RES_X - 1;
+
+	printf("map->sprite[%d]->drawendx : %d\n\n", map->i, map->sprite[map->i]->drawendx);
 }
