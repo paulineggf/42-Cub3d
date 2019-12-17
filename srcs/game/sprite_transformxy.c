@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 15:18:50 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 20:38:15 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:48:44 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	sprite_transformxy(t_map *map)
 	(((map->gamer.planey * -1) * map->sprite[map->i]->spritex)
 	+ (map->gamer.planex * map->sprite[map->i]->spritey));
 
-	printf("map->sprite[%d]->transformx : %f\n",
-	map->i, map->sprite[map->i]->transformx);
-	printf("map->sprite[%d]->transformy : %f\n",
-	map->i, map->sprite[map->i]->transformy);
+	// printf("map->sprite[%d]->transformx : %f\n",
+	// map->i, map->sprite[map->i]->transformx);
+	// printf("map->sprite[%d]->transformy : %f\n",
+	// map->i, map->sprite[map->i]->transformy);
 }

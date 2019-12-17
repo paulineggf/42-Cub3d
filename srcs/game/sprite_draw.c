@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_sprite.c                                      :+:      :+:    :+:   */
+/*   sprite_draw.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 22:03:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 20:36:55 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:48:05 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	draw_sprite(t_map *map)
 	map->i = 0;
 	while (map->i <= map->size_sprite)
 	{
-		printf("map->sprite[%d]->mapx : %d && map->sprite[%d]->mapy : %d\n",
-		map->i, map->sprite[map->i]->mapx, map->i, map->sprite[map->i]->mapy);
+		// printf("map->sprite[%d]->mapx : %d && map->sprite[%d]->mapy : %d\n",
+		// map->i, map->sprite[map->i]->mapx, map->i, map->sprite[map->i]->mapy);
 		sprite_xy(map);
 		distance_sprite(map);
 		sprite_invdet(map);
@@ -33,7 +33,7 @@ void	draw_sprite(t_map *map)
 		map->i++;
 	}
 	map->i = 0;
-	printf("map->i : %d\n", map->i);
+	// printf("map->i : %d\n", map->i);
 	while (map->i <= map->size_sprite)
 	{
 		sprite_loop(map);

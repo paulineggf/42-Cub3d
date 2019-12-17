@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:20:47 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 16:36:53 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:48:55 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	sprite_drawstartx(t_map *map)
 	if (map->sprite[map->i]->drawstartx < 0)
 		map->sprite[map->i]->drawstartx = 0;
 	
-	printf("map->sprite[%d]->drawstartx : %d\n", map->i, map->sprite[map->i]->drawstartx);
+	// printf("map->sprite[%d]->drawstartx : %d\n", map->i, map->sprite[map->i]->drawstartx);
 }

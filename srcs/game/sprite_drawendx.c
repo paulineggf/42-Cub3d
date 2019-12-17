@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:34:40 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 16:36:42 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:49:01 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	sprite_drawendx(t_map *map)
 	if (map->sprite[map->i]->drawendx >= RES_X)
 		map->sprite[map->i]->drawendx = RES_X - 1;
 
-	printf("map->sprite[%d]->drawendx : %d\n\n", map->i, map->sprite[map->i]->drawendx);
+	// printf("map->sprite[%d]->drawendx : %d\n\n", map->i, map->sprite[map->i]->drawendx);
 }

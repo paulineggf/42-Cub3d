@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:23:53 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 17:24:14 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:49:44 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	sprite_width(t_map *map)
 	map->sprite[map->i]->width = abs((int)((double)RES_Y /
 	map->sprite[map->i]->transformy));
 
-	printf("map->sprite[%d]->width : %d\n",
-	map->i, map->sprite[map->i]->width);
+	// printf("map->sprite[%d]->width : %d\n",
+	// map->i, map->sprite[map->i]->width);
 }

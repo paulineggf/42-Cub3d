@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   distance_sprite.c                                  :+:      :+:    :+:   */
+/*   sprite_distance.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 19:34:44 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 20:40:56 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/17 20:48:09 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void		distance_sprite(t_map *map)
 	+ (map->gamer.posy - map->sprite[map->i]->mapy) * (map->gamer.posy -
 	map->sprite[map->i]->mapy);
 
-	printf("map->sprite[%d]->distance : %f\n",
-	map->i, map->sprite[map->i]->distance);
+	// printf("map->sprite[%d]->distance : %f\n",
+	// map->i, map->sprite[map->i]->distance);
 }
