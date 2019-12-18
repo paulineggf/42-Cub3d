@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:46:27 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 13:44:54 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 14:39:19 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			fill_str(t_map *map)
 	ft_bzero(map->zbuffer, sizeof(int) * RES_X);
 	while (map->size_sprite-- > 0)
 		ft_bzero(map->sprite[map->size_sprite], sizeof(t_sprite));
-	// map->size_sprite = 0;
+	map->size_sprite = 0;
 	map->stripe = 0;
 	while (map->stripe < RES_X)
 	{
@@ -32,5 +32,4 @@ void			fill_str(t_map *map)
 		map->stripe++;
 	}
 	sprite_draw(map);
-	// exit(0);
 }

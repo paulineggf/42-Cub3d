@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:38:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 18:26:55 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:10:47 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	draw_sky_ground(t_map *map)
 	int		ground;
 
 	textx = fabs((atan2(map->gamer.raydiry, map->gamer.raydirx)
-	/ M_PI) * map->text.sky_x);
+	/ M_PI) * map->text[SKY]->x);
 	ysky = 200;
 	y = 0;
 	ground = 0x133A30;
 	while (y < RES_Y / 2)
 	{
-		map->ptr.str[((map->ptr.size_l / 4) * y) + map->stripe] = map->text.sky[
-		(((map->text.size_l_sky / 4) * ysky)
+		map->ptr.str[((map->ptr.size_l / 4) * y) + map->stripe] = map->text[SKY]->str[
+		(((map->text[SKY]->size_l / 4) * ysky)
 		+ textx)];
 		y++;
 		ysky++;

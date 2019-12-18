@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 13:28:35 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:10:26 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,17 @@
 # define BUFFER_CUB		33
 # define RES_X			1920
 # define RES_Y			1080
+
+enum
+{
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST,
+	SPRITE,
+	SKY,
+	FLOOR,
+};
 
 typedef struct		s_pos
 {
@@ -71,8 +82,6 @@ typedef	struct		s_sprite
 {
 	int				mapx;
 	int				mapy;
-	double			posx;
-	double			posy;
 	double			spritex;
 	double			spritey;
 	double			invdet;
@@ -84,16 +93,9 @@ typedef	struct		s_sprite
 	int				drawstartx;
 	int				drawendx;
 	int				width;
-	double			f_raydirx;
-	double			f_raydiry;
-	double			l_raydirx;
-	double			l_raydiry;
 	double			distance;
 	int				height;
-	double			x;
 	int				real_drawstart;
-	int				drawstart;
-	int				drawend;
 }					t_sprite;
 
 typedef struct		s_win
@@ -109,6 +111,7 @@ typedef struct		s_win
 	void			*mlx;
 	void			*win;
 	void			*img;
+	void			*text;
 	void			*n_text;
 	void			*s_text;
 	void			*e_text;
@@ -141,10 +144,10 @@ typedef struct		s_map
 	int				i;
 	int				**map;
 	int				size_sprite;
-	int				*zbuffer;
+	double			*zbuffer;
 	t_win			ptr;
 	t_pos			gamer;
-	t_win			text;
+	t_win			**text;
 	t_list			*garbage_collector;
 	t_sprite		**sprite;
 }					t_map;
