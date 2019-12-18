@@ -6,13 +6,13 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 22:03:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 20:48:05 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:18:01 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_sprite(t_map *map)
+void	sprite_draw(t_map *map)
 {
 	map->i = 0;
 	while (map->i <= map->size_sprite)
@@ -20,7 +20,7 @@ void	draw_sprite(t_map *map)
 		// printf("map->sprite[%d]->mapx : %d && map->sprite[%d]->mapy : %d\n",
 		// map->i, map->sprite[map->i]->mapx, map->i, map->sprite[map->i]->mapy);
 		sprite_xy(map);
-		distance_sprite(map);
+		sprite_distance(map);
 		sprite_invdet(map);
 		sprite_transformxy(map);
 		sprite_screenx(map);

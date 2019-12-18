@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 19:13:36 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:30:13 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int		move_gamer(t_map *map)
 {
-	if (map->gamer.forward || map->gamer.retreat)
+	if (map->gamer.forward || map->gamer.retreat || map->gamer.run
+	|| map->gamer.retreat_fast)
 		if (!(move_forward_retreat(map)))
 			return (0);
 	if (map->gamer.left)

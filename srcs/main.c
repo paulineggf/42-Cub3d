@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 18:32:16 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:08:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		main(int argc, char **argv)
 		RES_X, RES_Y, "Cub3D");
 		easy_malloc((void*)&(map->zbuffer), sizeof(int) * RES_X, map);
 		init_texture(map);
+		easy_malloc((void**)&map->zbuffer, sizeof(int) * RES_X, map);
 		launch_game(map);
 	}
 	return (0);

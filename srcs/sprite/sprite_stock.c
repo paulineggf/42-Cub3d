@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_distance.c                                  :+:      :+:    :+:   */
+/*   sprite_stock.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:34:44 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 20:48:09 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/11 19:33:22 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/18 12:32:03 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		distance_sprite(t_map *map)
+void	sprite_stock(t_map *map)
 {
-	map->sprite[map->i]->distance = (map->gamer.posx -
-	map->sprite[map->i]->mapx) * (map->gamer.posx - map->sprite[map->i]->mapx)
-	+ (map->gamer.posy - map->sprite[map->i]->mapy) * (map->gamer.posy -
-	map->sprite[map->i]->mapy);
-
-	// printf("map->sprite[%d]->distance : %f\n",
-	// map->i, map->sprite[map->i]->distance);
+	map->i = 0;
+	while (map->sprite[map->i]->mapx || map->sprite[map->i]->mapy)
+	{
+		if (map->sprite[map->i]->mapx == map->gamer.mapx
+		&& map->sprite[map->i]->mapy == map->gamer.mapy)
+			break ;
+		map->i++;
+		if (map->i > map->size_sprite)
+			map->size_sprite = map->i;
+	}
+	map->sprite[map->i]->mapx = map->gamer.mapx;
+	map->sprite[map->i]->mapy = map->gamer.mapy;
 }

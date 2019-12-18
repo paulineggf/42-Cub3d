@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:32:25 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ int			press_key(int key, void *param)
 		map->gamer.rotate_left = 1;
 	if (key == 124)
 		map->gamer.rotate_right = 1;
+	if (key == 126)
+		map->gamer.run = 1;
+	if (key == 125)
+		map->gamer.retreat_fast = 1;
 	if (key == 53)
 	{
 		free(map->ptr.str);

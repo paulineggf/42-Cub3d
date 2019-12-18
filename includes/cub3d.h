@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 20:47:30 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:28:35 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ typedef struct		s_pos
 	int				drawend;
 	double			beta;
 	int				forward;
+	int				run;
 	int				retreat;
+	int				retreat_fast;
 	int				left;
 	int				right;
 	int				rotate_right;
@@ -179,11 +181,10 @@ void				init_texture(t_map *map);
 void				exit_failure(char *str, t_map *map);
 void				easy_malloc(void **content, size_t n, t_map *map);
 int					init_image(t_map *map);
-void				stock_sprite(t_map *map);
-void				distance_sprite(t_map *map);
+void				sprite_stock(t_map *map);
+void				sprite_distance(t_map *map);
 void				sprite_height(t_map *map);
-void				sprite_x(t_map *map);
-void				draw_sprite(t_map *map);
+void				sprite_draw(t_map *map);
 void				sprite_xy(t_map *map);
 void				sprite_invdet(t_map *map);
 void				sprite_transformxy(t_map *map);

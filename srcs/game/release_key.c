@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 19:09:56 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 19:00:00 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:29:41 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ int		release_key(int key, void *param)
 		map->gamer.rotate_left = 0;
 	if (key == 124)
 		map->gamer.rotate_right = 0;
+	if (key == 126)
+		map->gamer.run = 0;
+	if (key == 125)
+		map->gamer.retreat_fast = 0;
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/17 20:41:41 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/18 12:16:27 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ PATH_NAME = ./srcs/
 PATH_INIT = ./srcs/init_map/
 PATH_WALL = ./srcs/isitwall/
 PATH_GAME = ./srcs/game/
+PATH_SPRITE = ./srcs/sprite/
 
 SRCS_NAME =	main.c					\
 			exit_failure.c 			\
@@ -48,8 +49,9 @@ SRCS_GAME =	launch_game.c 			\
 			draw_sky_ground.c 		\
 			define_wallx.c 			\
 			init_texture.c 			\
-			press_key.c 			\
-			sprite_stock.c 			\
+			press_key.c 
+
+SRCS_SPRITE = sprite_stock.c 			\
 			sprite_distance.c 		\
 			sprite_height.c 		\
 			sprite_draw.c			\
@@ -69,12 +71,14 @@ SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))
 SRCS2 = $(addprefix $(PATH_INIT), $(SRCS_INIT))
 SRCS3 = $(addprefix $(PATH_WALL), $(SRCS_WALL))
 SRCS4 = $(addprefix $(PATH_GAME), $(SRCS_GAME))
+SRCS5 = $(addprefix $(PATH_SPRITE), $(SRCS_SPRITE))
 HEADERS = ./includes/
 HEADERS2 = ./libft/includes/
 OBJS = $(SRCS:.c=.o)
 OBJS2 = $(SRCS2:.c=.o)
 OBJS3 = $(SRCS3:.c=.o)
 OBJS4 = $(SRCS4:.c=.o)
+OBJS5 = $(SRCS5:.c=.o)
 NAME = Cub3D
 LIB = libft/libft.a
 MLX = minilibx_opengl_20191021/libmlx.a
@@ -82,17 +86,17 @@ RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -MMD -fsanitize=address -I $(HEADERS) -I $(HEADERS2) -Ofast
 
-DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS3:.c=.d) $(SRCS4:.c=.d) 
+DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS3:.c=.d) $(SRCS4:.c=.d) $(SRCS5:.c=.d) 
 
 all: $(NAME)
 
 -include $(DPDCS)
 
-$(NAME): $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4)
-	$(CC) $(CFLAGS) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) -I /usr/local/include/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) $(MLX)
+$(NAME): $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)
+	$(CC) $(CFLAGS) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5) -I /usr/local/include/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) $(MLX)
 
 clean:
-	$(RM) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) -include $(DPDCS)
+	$(RM) $(OBJS) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5) -include $(DPDCS)
 
 fclean: clean
 	$(RM) $(NAME)

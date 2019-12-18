@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:45:53 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 17:03:30 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:20:55 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,20 @@ void	sprite_loop(t_map *map)
 		map->sprite[map->i]->screenx)) * map->text.sprite_x /
 		map->sprite[map->i]->width) / 256;
 		y = map->sprite[map->i]->drawstarty;
-		while (y < map->sprite[map->i]->drawendy)
+		if (map->sprite[map->i]->transformy > 0 && stripe > 0 &&
+		stripe < RES_X && map->sprite[map->i]->transformy < map->zbuffer[stripe])
 		{
-			d = (y * 256) - (RES_Y * 128) + + map->sprite[map->i]->height * 128;
-			texty = ((d * map->text.sprite_y) / map->sprite[map->i]->height) / 256;
-			color = map->text.str_sprite[(map->text.size_l_sprite / 4) * texty + textx];
-			// printf("color : %x\n", color);
-			if (color != 0)
-				map->ptr.str[((map->ptr.size_l / 4) * y) + stripe] = color;
-			y++;
+			while (y < map->sprite[map->i]->drawendy)
+			{
+				d = (y * 256) - (RES_Y * 128) + + map->sprite[map->i]->height * 128;
+				texty = ((d * map->text.sprite_y) / map->sprite[map->i]->height) / 256;
+				color = map->text.str_sprite[(map->text.size_l_sprite / 4) * texty + textx];
+				// printf("color : %x\n", color);
+				if (color != 0)
+					map->ptr.str[((map->ptr.size_l / 4) * y) + stripe] = color;
+				y++;
+			}
 		}
-
 		stripe++;
 	}
 }

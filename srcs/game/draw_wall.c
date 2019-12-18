@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:36:56 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/17 18:27:28 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:09:29 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ void	draw_wall(t_map *map)
 		i++;
 		map->gamer.drawstart += 1;
 	}
+	map->zbuffer[map->stripe] = map->gamer.perpwalldist;
 }
