@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:58:30 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 15:12:58 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:25:32 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ void			init_texture(t_map *map)
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[NORTH]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[NORTH]->text,
-	&map->text[NORTH]->b_p, &map->text[NORTH]->size_l, &map->text[NORTH]->endian)))
+	&map->text[NORTH]->b_p, &map->text[NORTH]->size_l,
+	&map->text[NORTH]->endian)))
 		exit_failure("Malloc failure\n", map);
 	if (!(new_n = ft_lstnew(map->text[NORTH]->str)))
 		exit_failure("Malloc failure\n", map);

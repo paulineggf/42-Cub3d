@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/18 12:16:27 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/18 15:23:14 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ PATH_SPRITE = ./srcs/sprite/
 
 SRCS_NAME =	main.c					\
 			exit_failure.c 			\
-			easy_malloc.c 
+			easy_malloc.c 			\
+			malloc_texture.c
 
 SRCS_INIT = define_x.c 				\
 			define_y.c 				\
