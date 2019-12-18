@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:58:30 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 18:23:16 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:01:01 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static void		init_texture_sprite(t_map *map)
 static void		init_texture3(t_map *map)
 {
 	t_list	*new_s;
+	t_list	*floor;
 
 	if (!(map->text[SOUTH]->text = mlx_xpm_file_to_image(map->ptr.mlx,
 	"./textures_hi/anon_vert.xpm", &map->text[SOUTH]->x, &map->text[SOUTH]->y)))
@@ -62,6 +63,17 @@ static void		init_texture3(t_map *map)
 	if (!(new_s = ft_lstnew(map->text[SOUTH]->str)))
 		exit_failure("Malloc failure\n", map);
 	ft_lstadd_front(&(map->garbage_collector), new_s);
+	if (!(map->text[FLOOR]->text = mlx_xpm_file_to_image(map->ptr.mlx,
+	"./textures_hi/sol_lune.xpm", &map->text[FLOOR]->x, &map->text[FLOOR]->y)))
+		exit_failure("Wrong Texture\n", map);
+	if (!(map->text[FLOOR]->str =
+	(unsigned int*)mlx_get_data_addr(map->text[FLOOR]->text,
+	&map->text[FLOOR]->b_p, &map->text[FLOOR]->size_l,
+	&map->text[FLOOR]->endian)))
+		exit_failure("Malloc failure\n", map);
+	if (!(floor = ft_lstnew(map->text[FLOOR]->str)))
+		exit_failure("Malloc failure\n", map);
+	ft_lstadd_front(&(map->garbage_collector), floor);
 }
 
 static void		init_texture2(t_map *map)

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:36:56 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 16:52:02 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 20:26:06 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void		define_texture(t_map *map, int *texture)
 		*texture = SOUTH;
 }
 
-void	draw_wall(t_map *map)
+void			draw_wall(t_map *map)
 {
 	int		xtext;
 	int		ytext;
@@ -33,10 +33,9 @@ void	draw_wall(t_map *map)
 
 	define_texture(map, &texture);
 	ytext = 0;
+	i = 0;
 	if (map->gamer.real_drawstart < 0)
 		i = abs(map->gamer.real_drawstart);
-	else
-		i = 0;
 	xtext = map->gamer.wallx * map->text[texture]->x;
 	while (map->gamer.drawstart <= map->gamer.drawend)
 	{
@@ -52,5 +51,4 @@ void	draw_wall(t_map *map)
 		i++;
 		map->gamer.drawstart += 1;
 	}
-	map->zbuffer[map->stripe] = map->gamer.perpwalldist;
 }

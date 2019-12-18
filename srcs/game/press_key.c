@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 13:32:25 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 20:39:10 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@
 ** ESC = 53
 */
 
-int			press_key(int key, void *param)
+int			press_key(int key, t_map *map)
 {
-	t_map			*map;
-
-	map = (t_map*)param;
 	if (key == 12)
 		map->gamer.forward = 1;
 	if (key == 6)

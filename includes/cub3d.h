@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 18:43:17 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 20:38:56 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ typedef struct		s_pos
 	double			deltadisty;
 	int				side;
 	double			wallx;
+	double			floorxwall;
+	double			floorywall;
 }					t_pos;
 
 typedef	struct		s_sprite
@@ -114,6 +116,18 @@ typedef struct		s_win
 	unsigned int	*str;
 }					t_win;
 
+typedef struct		s_floor
+{
+	double			currentdist;
+	double			weight;
+	double			currentfloorx;
+	double			currentfloory;
+	double			distwall;
+	double			displayer;
+	int				floortextx;
+	int				floortexty;
+}					t_floor;
+
 typedef struct		s_map
 {
 	int				x;
@@ -125,6 +139,7 @@ typedef struct		s_map
 	double			*zbuffer;
 	t_win			ptr;
 	t_pos			gamer;
+	t_floor			floor;
 	t_win			**text;
 	t_list			*garbage_collector;
 	t_sprite		**sprite;
@@ -138,7 +153,7 @@ void				ft_close(int fd, t_map *map);
 int					fill_map(int fd, t_map *map);
 void				init_pos(t_map *map, int orientation, int x, int y);
 int					launch_game(t_map *map);
-int					press_key(int key, void *param);
+int					press_key(int key, t_map *map);
 int					main(int argc, char **argv);
 void				define_color(t_map *map);
 void				define_height(t_map *map);
@@ -156,7 +171,7 @@ void				rotate_right(t_map *map);
 void				rotate_left(t_map *map);
 void				fill_str(t_map *map);
 void				draw_wall(t_map *map);
-void				draw_sky_ground(t_map *map);
+void				draw_sky(t_map *map);
 void				define_wallx(t_map *map);
 void				init_texture(t_map *map);
 void				exit_failure(char *str, t_map *map);
@@ -178,5 +193,7 @@ void				sprite_drawendx(t_map *map);
 void				sprite_loop(t_map *map);
 void				malloc_texture(t_map *map);
 void				sprite_combsort(t_map *map);
+void				draw_floor(t_map *map);
+void				floor_xywall(t_map *map);
 
 #endif

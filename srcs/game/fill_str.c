@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:46:27 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 14:39:19 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 20:25:46 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ void			fill_str(t_map *map)
 								* map->gamer.camerax;
 		map->gamer.raydiry = map->gamer.diry + map->gamer.planey
 								* map->gamer.camerax;
-		draw_sky_ground(map);
+		draw_sky(map);
 		define_wall(map);
 		draw_wall(map);
+		map->zbuffer[map->stripe] = map->gamer.perpwalldist;
+		draw_floor(map);
 		map->stripe++;
 	}
 	sprite_draw(map);
