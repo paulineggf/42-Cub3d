@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 19:33:22 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 12:32:03 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 18:35:52 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void	sprite_stock(t_map *map)
 	{
 		if (map->sprite[map->i]->mapx == map->gamer.mapx
 		&& map->sprite[map->i]->mapy == map->gamer.mapy)
-			break ;
+			return ;
 		map->i++;
 		if (map->i > map->size_sprite)
 			map->size_sprite = map->i;
 	}
 	map->sprite[map->i]->mapx = map->gamer.mapx;
 	map->sprite[map->i]->mapy = map->gamer.mapy;
+	sprite_distance(map);
 }

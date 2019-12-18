@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 16:52:31 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 18:43:17 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,5 +177,6 @@ void				sprite_width(t_map *map);
 void				sprite_drawendx(t_map *map);
 void				sprite_loop(t_map *map);
 void				malloc_texture(t_map *map);
+void				sprite_combsort(t_map *map);
 
 #endif

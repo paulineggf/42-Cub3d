@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/18 15:23:14 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/18 18:43:28 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ SRCS_SPRITE = sprite_stock.c 			\
 			sprite_drawstartx.c 	\
 			sprite_width.c			\
 			sprite_drawendx.c		\
-			sprite_loop.c
+			sprite_loop.c 			\
+			sprite_combsort.c
 			
 
 SRCS = $(addprefix $(PATH_NAME), $(SRCS_NAME))

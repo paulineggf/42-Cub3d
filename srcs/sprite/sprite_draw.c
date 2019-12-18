@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 22:03:19 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 14:40:15 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 18:37:01 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	sprite_draw(t_map *map)
 {
+	sprite_combsort(map);
 	map->i = 0;
 	while (map->i <= map->size_sprite &&
 	(map->sprite[map->i]->mapx || map->sprite[map->i]->mapx))
 	{
 		sprite_xy(map);
-		sprite_distance(map);
+		// sprite_distance(map);
 		sprite_invdet(map);
 		sprite_transformxy(map);
 		sprite_screenx(map);
