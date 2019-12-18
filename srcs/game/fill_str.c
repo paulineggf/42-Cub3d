@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:46:27 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 13:24:43 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:44:54 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			fill_str(t_map *map)
 	map->stripe = 0;
 	while (map->stripe < RES_X)
 	{
-		map->gamer.camerax = 2 * map->stripe / (double)RES_X - 1.0;
+		map->gamer.camerax = 2.0 * (double)map->stripe / (double)RES_X - 1.0;
 		map->gamer.raydirx = map->gamer.dirx + map->gamer.planex
 								* map->gamer.camerax;
 		map->gamer.raydiry = map->gamer.diry + map->gamer.planey
