@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 15:22:17 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 16:52:31 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,6 @@ typedef	struct		s_sprite
 typedef struct		s_win
 {
 	int				x;
-	int				sky_x;
-	int				sky_y;
-	int				sprite_x;
-	int				sprite_y;
 	int				y;
 	int				i;
 	int				color;
@@ -112,28 +108,10 @@ typedef struct		s_win
 	void			*win;
 	void			*img;
 	void			*text;
-	void			*n_text;
-	void			*s_text;
-	void			*e_text;
-	void			*w_text;
-	void			*sky_text;
-	void			*sprite_text;
 	int				b_p;
-	int				b_p_sky;
-	int				b_p_sprite;
 	int				size_l;
-	int				size_l_sky;
-	int				size_l_sprite;
 	int				endian;
-	int				endian_sky;
-	int				endian_sprite;
 	unsigned int	*str;
-	unsigned int	*sky;
-	unsigned int	*str_n;
-	unsigned int	*str_s;
-	unsigned int	*str_e;
-	unsigned int	*str_w;
-	unsigned int	*str_sprite;
 }					t_win;
 
 typedef struct		s_map

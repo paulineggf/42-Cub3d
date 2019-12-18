@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:58:30 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 15:25:32 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/18 16:51:44 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,10 @@ static void		init_texture_sky(t_map *map)
 	ft_lstadd_front(&(map->garbage_collector), sky);
 }
 
-static void		init_texture3(t_map *map)
+static void		init_texture_sprite(t_map *map)
 {
-	t_list	*new_s;
 	t_list	*new_sprite;
 
-	if (!(map->text[SOUTH]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/anon_vert.xpm", &map->text[SOUTH]->x, &map->text[SOUTH]->y)))
-		exit_failure("Wrong Texture\n", map);
-	if (!(map->text[SOUTH]->str =
-	(unsigned int*)mlx_get_data_addr(map->text[SOUTH]->text,
-	&map->text[SOUTH]->b_p, &map->text[SOUTH]->size_l,
-	&map->text[SOUTH]->endian)))
-		exit_failure("Malloc failure\n", map);
-	if (!(new_s = ft_lstnew(map->text[SOUTH]->str)))
-		exit_failure("Malloc failure\n", map);
-	ft_lstadd_front(&(map->garbage_collector), new_s);
 	if (!(map->text[SPRITE]->text = mlx_xpm_file_to_image(map->ptr.mlx,
 	"./textures_hi/greenlight.XPM",
 	&map->text[SPRITE]->x, &map->text[SPRITE]->y)))
@@ -57,6 +45,23 @@ static void		init_texture3(t_map *map)
 	if (!(new_sprite = ft_lstnew(map->text[SPRITE]->str)))
 		exit_failure("Malloc failure\n", map);
 	ft_lstadd_front(&(map->garbage_collector), new_sprite);
+}
+
+static void		init_texture3(t_map *map)
+{
+	t_list	*new_s;
+
+	if (!(map->text[SOUTH]->text = mlx_xpm_file_to_image(map->ptr.mlx,
+	"./textures_hi/anon_vert.xpm", &map->text[SOUTH]->x, &map->text[SOUTH]->y)))
+		exit_failure("Wrong Texture\n", map);
+	if (!(map->text[SOUTH]->str =
+	(unsigned int*)mlx_get_data_addr(map->text[SOUTH]->text,
+	&map->text[SOUTH]->b_p, &map->text[SOUTH]->size_l,
+	&map->text[SOUTH]->endian)))
+		exit_failure("Malloc failure\n", map);
+	if (!(new_s = ft_lstnew(map->text[SOUTH]->str)))
+		exit_failure("Malloc failure\n", map);
+	ft_lstadd_front(&(map->garbage_collector), new_s);
 }
 
 static void		init_texture2(t_map *map)
@@ -74,8 +79,8 @@ static void		init_texture2(t_map *map)
 	if (!(new_e = ft_lstnew(map->text[EAST]->str)))
 		exit_failure("Malloc failure\n", map);
 	ft_lstadd_front(&(map->garbage_collector), new_e);
-	if (!(map->text[EAST]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/anon.xpm", &map->text[EAST]->x, &map->text[EAST]->y)))
+	if (!(map->text[WEST]->text = mlx_xpm_file_to_image(map->ptr.mlx,
+	"./textures_hi/anon.xpm", &map->text[WEST]->x, &map->text[WEST]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[WEST]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[WEST]->text,
@@ -105,4 +110,5 @@ void			init_texture(t_map *map)
 	init_texture2(map);
 	init_texture3(map);
 	init_texture_sky(map);
+	init_texture_sprite(map);
 }
