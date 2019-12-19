@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:56:49 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 16:30:46 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:05:18 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void		init_map(char *av, t_map *map)
 {
 	int		fd;
-	int		ret;
 	int		i;
-	char	str;
+	char	*str;
 
 	if ((fd = open(av, O_RDONLY)) == -1)
 		exit_failure("Open file fail\n", map);

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 15:58:00 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 16:14:54 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:21:35 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ char	*fill_buf(int fd, t_map *map)
 {
 	char	*str;
 	int		ret;
-	char	buf[33];
+	char	buf[100];
 
-	while ((ret = read(fd, buf, 32)) > 0)
+	if (!(str = malloc(sizeof(char))))
+		exit_failure("Malloc failure\n", map);
+	while ((ret = read(fd, buf, 99)) > 0)
 	{
 		buf[ret] = '\0';
 		if (!(str = ft_realloc(str, buf,

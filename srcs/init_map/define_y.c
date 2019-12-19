@@ -6,15 +6,14 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:57:35 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 16:39:51 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:03:35 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		define_y(char *str, int i, t_map *map)
+void		define_y(char *str, int i, t_map *map)
 {
-	int		i;
 	int		ret;
 
 	map->y = 1;

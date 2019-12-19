@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 15:40:54 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:13:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,8 @@ typedef struct		s_map
 
 void				malloc_map(t_map *map);
 void				init_map(char *av, t_map *map);
-int					define_y(int fd, char *buf, t_map *map, int *ret);
-void				define_x(int fd, char *buf, t_map *map, int *ret);
+void				define_y(char *str, int i, t_map *map);
+int					define_x(char *str, int i, t_map *map);
 void				ft_close(int fd, t_map *map);
 int					fill_map(int fd, t_map *map);
 void				init_pos(t_map *map, int orientation, int x, int y);
@@ -201,5 +201,10 @@ void				sprite_combsort(t_map *map);
 void				draw_floor(t_map *map);
 void				floor_xywall(t_map *map);
 void				malloc_sprite(t_map *map);
+void				define_params(char *str, int *i, t_map *map);
+char				*fill_buf(int fd, t_map *map);
+void				define_resolution(char *buf, int *i, t_map *map);
+int					fill_texture(char *buf, int *i, char *texture, t_map *map);
+char				*ft_realloc(char *str, char *buf, int n);
 
 #endif

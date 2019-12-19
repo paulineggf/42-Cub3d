@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/19 13:15:57 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/19 17:16:14 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,12 @@ SRCS_INIT = define_x.c 				\
 			init_map.c 				\
 			init_pos.c 				\
 			malloc_map.c 			\
-			malloc_sprite.c
+			malloc_sprite.c			\
+			define_params.c 		\
+			fill_buf.c 				\
+			define_resolution.c 	\
+			fill_texture.c 			\
+			ft_realloc.c
 
 SRCS_GAME =	launch_game.c 			\
 			init_image.c 			\
@@ -89,7 +94,7 @@ LIB = libft/libft.a
 MLX = minilibx_opengl_20191021/libmlx.a
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
+CFLAGS = -Wall -Wextra -Werror -g -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
 
 DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS4:.c=.d) $(SRCS5:.c=.d) $(SRCS6:.c=.d)
 
