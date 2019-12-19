@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:58:30 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 19:01:01 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 11:32:31 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		init_texture_sprite(t_map *map)
 	t_list	*new_sprite;
 
 	if (!(map->text[SPRITE]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/spyware.xpm",
+	"./textures_hi/alien-29470.xpm",
 	&map->text[SPRITE]->x, &map->text[SPRITE]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[SPRITE]->str =

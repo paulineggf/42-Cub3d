@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:24:20 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 20:40:55 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 10:13:44 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static void		floor_loop(t_map *map, int *y)
 		map->floor.floortexty = (int)(map->floor.currentfloory
 		* map->text[FLOOR]->y) % map->text[FLOOR]->y;
 		map->ptr.str[(map->ptr.size_l / 4) * *y + map->stripe] =
-		map->text[FLOOR]->str[(map->text[FLOOR]->x * map->floor.floortexty
-		+ map->floor.floortextx)];
+		(map->text[FLOOR]->str[(map->text[FLOOR]->x * map->floor.floortexty
+		+ map->floor.floortextx)] >> 1) & 8355711;
 		(*y)++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:16:52 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 13:00:56 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 11:14:39 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ int		move_right(t_map *map)
 	* map->gamer.diry + sin(90.0 * M_PI / 180.0) * map->gamer.dirx
 	* 0.1)][(int)(map->gamer.posx + cos(90.0 * M_PI / 180.0)
 	* map->gamer.dirx - sin(90.0 * M_PI / 180.0) * map->gamer.diry
-	* 0.1)] == 1)
+	* 0.1)] == 1 || map->map[(int)(map->gamer.posy + cos(90.0 * M_PI / 180.0)
+	* map->gamer.diry + sin(90.0 * M_PI / 180.0) * map->gamer.dirx
+	* 0.1)][(int)(map->gamer.posx + cos(90.0 * M_PI / 180.0)
+	* map->gamer.dirx - sin(90.0 * M_PI / 180.0) * map->gamer.diry
+	* 0.1)] == 2)
 		return (0);
 	x = cos(90.0 * M_PI / 180.0) * map->gamer.dirx
 	- sin(90.0 * M_PI / 180.0) * map->gamer.diry;

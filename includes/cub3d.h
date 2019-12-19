@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 20:38:56 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 11:18:53 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 # include "ft_printf.h"
 # include "mlx.h"
 
-# define ALPHA			60
-# define BLOCK_SIZE 	64
 # define BUFFER_CUB		33
 # define RES_X			1920
 # define RES_Y			1080
@@ -195,5 +193,6 @@ void				malloc_texture(t_map *map);
 void				sprite_combsort(t_map *map);
 void				draw_floor(t_map *map);
 void				floor_xywall(t_map *map);
+void				malloc_sprite(t_map *map);
 
 #endif

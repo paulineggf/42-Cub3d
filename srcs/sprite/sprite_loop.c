@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:45:53 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 20:26:20 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 11:47:55 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void		fill_str_sprite(t_map *map, int y, int *stripe, int *textx)
 			color = map->text[SPRITE]->str[(map->text[SPRITE]->size_l / 4)
 			* texty + *textx];
 			color = abs(color);
-			if (color != 16777216)
+			if (color != 0xffffff)
 				map->ptr.str[((map->ptr.size_l / 4) * y) + *stripe] = color;
 			y++;
 		}

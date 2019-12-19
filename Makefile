@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/18 20:43:42 by pganglof         ###   ########.fr        #
+#    Updated: 2019/12/19 11:10:28 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS_INIT = define_x.c 				\
 			ft_close.c				\
 			init_map.c 				\
 			init_pos.c 				\
-			malloc_map.c
+			malloc_map.c 			\
+			malloc_sprite.c
 
 SRCS_GAME =	launch_game.c 			\
 			init_image.c 			\
