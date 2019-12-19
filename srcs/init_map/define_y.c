@@ -6,55 +6,32 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 13:57:35 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/07 17:05:17 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 16:39:51 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	define_ybis(int fd, char *buf, int *i, t_map *map)
-{
-	int		ret;
-
-	while ((ret = read(fd, buf, BUFFER_CUB - 1)) > 0)
-	{
-		*i = 0;
-		buf[ret] = '\0';
-		while (buf[*i])
-		{
-			while (buf[*i] && buf[*i] != '\n')
-				(*i)++;
-			if (buf[*i] == '\n')
-			{
-				map->y++;
-				if (*i + map->x < ret)
-					*i = *i + map->x + 1;
-				else
-					(*i)++;
-			}
-		}
-	}
-	return (ret);
-}
-
-int			define_y(int fd, char *buf, t_map *map, int *ret)
+int		define_y(char *str, int i, t_map *map)
 {
 	int		i;
+	int		ret;
 
-	i = map->x;
 	map->y = 1;
-	while (buf[i])
+	while (str[i])
 	{
-		while (buf[i] && buf[i] != '\n')
-			i++;
-		if (buf[i] == '\n')
-		{
+		i += map->x;
+		if (str[i] == '1' || str[i] == '2' || str[i] == '0')
+			ret = define_x(str, i, map);
+		else
+			break ;
+		if (ret != map->x)
+			exit_failure("Map error\n", map);
+		else
 			map->y++;
-			if (i + map->x < *ret)
-				i = i + map->x + 1;
-			else
-				i++;
-		}
 	}
-	return (define_ybis(fd, buf, &i, map));
+	while ((str[i] == ' ' || str[i] == '\n') && str[i])
+		i++;
+	if (str[i] != '\0')
+		exit_failure("Map error\n", map);
 }

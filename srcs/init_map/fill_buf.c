@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_drawstarty.c                                :+:      :+:    :+:   */
+/*   fill_buf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/17 16:04:17 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 15:40:41 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/19 15:58:00 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/19 16:14:54 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	sprite_drawstarty(t_map *map)
+char	*fill_buf(int fd, t_map *map)
 {
-	map->sprite[map->i]->drawstarty = (-map->sprite[map->i]->height / 2)
-	+ (map->res_y / 2);
-	if (map->sprite[map->i]->drawstarty < 0)
-		map->sprite[map->i]->drawstarty = 0;
+	char	*str;
+	int		ret;
+	char	buf[33];
+
+	while ((ret = read(fd, buf, 32)) > 0)
+	{
+		buf[ret] = '\0';
+		if (!(str = ft_realloc(str, buf,
+		ft_strlen(str) + (sizeof(char) * (ret + 1)))))
+			exit_failure("Malloc failure\n", map);
+	}
+	if (ret == -1)
+		exit_failure("Read error\n", map);
+	return (str);
 }

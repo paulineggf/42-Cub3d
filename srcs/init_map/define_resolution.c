@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_drawstarty.c                                :+:      :+:    :+:   */
+/*   define_resolution.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/17 16:04:17 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 15:40:41 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/19 15:07:39 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/19 15:13:00 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	sprite_drawstarty(t_map *map)
+void	define_resolution(char *buf, int *i, t_map *map)
 {
-	map->sprite[map->i]->drawstarty = (-map->sprite[map->i]->height / 2)
-	+ (map->res_y / 2);
-	if (map->sprite[map->i]->drawstarty < 0)
-		map->sprite[map->i]->drawstarty = 0;
+	(*i)++;
+	while (buf[*i] == ' ')
+		(*i)++;
+	map->res_x = ft_atoi(buf + *i);
+	if (map->res_x > 2560)
+		exit_failure("Map error\n", map);
+	while (ft_isdigit(buf[*i]) || buf[*i] == ' ')
+		(*i)++;
+	map->res_y = ft_atoi(buf + *i);
+	if (map->res_y > 1440)
+		exit_failure("Map error\n", map);
+	while (ft_isdigit(buf[*i]) || buf[*i] == ' ' || buf[*i] == '\n')
+		(*i)++;
 }

@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:24:20 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 10:13:44 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:40:24 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void		floor_loop(t_map *map, int *y)
 {
-	while (*y < RES_Y)
+	while (*y < map->res_y)
 	{
 		map->floor.currentdist =
-		(double)RES_Y / (2.0 * (double)*y - (double)RES_Y);
+		(double)map->res_y / (2.0 * (double)*y - (double)map->res_y);
 		map->floor.weight =
 		(map->floor.currentdist - map->floor.displayer)
 		/ (map->floor.distwall - map->floor.displayer);
@@ -44,7 +44,7 @@ void			draw_floor(t_map *map)
 	floor_xywall(map);
 	map->floor.distwall = map->gamer.perpwalldist;
 	if (map->gamer.drawend < 0)
-		map->gamer.drawend = RES_Y;
+		map->gamer.drawend = map->res_y;
 	y = map->gamer.drawend + 1;
 	floor_loop(map, &y);
 }

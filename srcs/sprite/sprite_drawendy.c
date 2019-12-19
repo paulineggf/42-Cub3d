@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:17:55 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 20:44:47 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:40:39 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sprite_drawendy(t_map *map)
 {
-	map->sprite[map->i]->drawendy = map->sprite[map->i]->height / 2 + RES_Y / 2;
-	if (map->sprite[map->i]->drawendy >= RES_Y)
-		map->sprite[map->i]->drawendy = RES_Y - 1;
+	map->sprite[map->i]->drawendy = map->sprite[map->i]->height / 2 + map->res_y / 2;
+	if (map->sprite[map->i]->drawendy >= map->res_y)
+		map->sprite[map->i]->drawendy = map->res_y - 1;
 }

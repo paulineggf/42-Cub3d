@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 20:39:10 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 13:06:52 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			press_key(int key, t_map *map)
 		map->gamer.retreat_fast = 1;
 	if (key == 53)
 	{
-		free(map->ptr.str);
+		mlx_destroy_image(map->ptr.mlx, map->ptr.img);
 		mlx_destroy_window(map->ptr.mlx, map->ptr.win);
 		exit_failure("\n\n   --------- END OF GAME! ---------\n\n\n", map);
 	}

@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_drawstarty.c                                :+:      :+:    :+:   */
+/*   fill_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/17 16:04:17 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 15:40:41 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/19 15:13:26 by pganglof          #+#    #+#             */
+/*   Updated: 2019/12/19 15:25:17 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	sprite_drawstarty(t_map *map)
+int		fill_texture(char *buf, int *i, char *texture, t_map *map)
 {
-	map->sprite[map->i]->drawstarty = (-map->sprite[map->i]->height / 2)
-	+ (map->res_y / 2);
-	if (map->sprite[map->i]->drawstarty < 0)
-		map->sprite[map->i]->drawstarty = 0;
+	int		tmp;
+	int		len_text;
+
+	tmp = *i;
+	while (buf[*i] == ' ')
+		(*i)++;
+	if (tmp == *i)
+		return (0);
+	len_text = ft_strnlen(buf + *i, '\n');
+	easy_malloc((void**)&texture, len_text, map);
+	ft_strncpy(texture, buf + *i, '\n');
+	*i += len_text;
+	return (1);
 }

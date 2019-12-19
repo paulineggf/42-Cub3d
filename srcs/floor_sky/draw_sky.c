@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:38:34 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 20:41:40 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:40:27 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		draw_sky(t_map *map)
 	ysky = 200;
 	y = 0;
 	ground = 0x133A30;
-	while (y < RES_Y / 2)
+	while (y < map->res_y / 2)
 	{
 		map->ptr.str[((map->ptr.size_l / 4) * y) + map->stripe] =
 		map->text[SKY]->str[(((map->text[SKY]->size_l / 4) * ysky)

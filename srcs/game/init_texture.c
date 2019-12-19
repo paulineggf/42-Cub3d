@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:58:30 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 11:32:31 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:35:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ static void		init_texture_sky(t_map *map)
 	t_list	*sky;
 
 	if (!(map->text[SKY]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/Earth-globe-planet-space-world-1560003-wallhere.com.XPM",
-	&map->text[SKY]->x, &map->text[SKY]->y)))
+	map->texture_sky, &map->text[SKY]->x, &map->text[SKY]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[SKY]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[SKY]->text,
@@ -34,8 +33,7 @@ static void		init_texture_sprite(t_map *map)
 	t_list	*new_sprite;
 
 	if (!(map->text[SPRITE]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/alien-29470.xpm",
-	&map->text[SPRITE]->x, &map->text[SPRITE]->y)))
+	map->texture_sprite, &map->text[SPRITE]->x, &map->text[SPRITE]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[SPRITE]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[SPRITE]->text,
@@ -53,7 +51,7 @@ static void		init_texture3(t_map *map)
 	t_list	*floor;
 
 	if (!(map->text[SOUTH]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/anon_vert.xpm", &map->text[SOUTH]->x, &map->text[SOUTH]->y)))
+	map->texture_south, &map->text[SOUTH]->x, &map->text[SOUTH]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[SOUTH]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[SOUTH]->text,
@@ -64,7 +62,7 @@ static void		init_texture3(t_map *map)
 		exit_failure("Malloc failure\n", map);
 	ft_lstadd_front(&(map->garbage_collector), new_s);
 	if (!(map->text[FLOOR]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/sol_lune.xpm", &map->text[FLOOR]->x, &map->text[FLOOR]->y)))
+	map->texture_floor, &map->text[FLOOR]->x, &map->text[FLOOR]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[FLOOR]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[FLOOR]->text,
@@ -82,7 +80,7 @@ static void		init_texture2(t_map *map)
 	t_list	*new_w;
 
 	if (!(map->text[EAST]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/EqdAgN.xpm", &map->text[EAST]->x, &map->text[EAST]->y)))
+	map->texture_east, &map->text[EAST]->x, &map->text[EAST]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[EAST]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[EAST]->text,
@@ -92,7 +90,7 @@ static void		init_texture2(t_map *map)
 		exit_failure("Malloc failure\n", map);
 	ft_lstadd_front(&(map->garbage_collector), new_e);
 	if (!(map->text[WEST]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/anon.xpm", &map->text[WEST]->x, &map->text[WEST]->y)))
+	map->texture_west, &map->text[WEST]->x, &map->text[WEST]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[WEST]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[WEST]->text,
@@ -108,8 +106,7 @@ void			init_texture(t_map *map)
 	t_list	*new_n;
 
 	if (!(map->text[NORTH]->text = mlx_xpm_file_to_image(map->ptr.mlx,
-	"./textures_hi/B_v-for-vend_nAkdIAig.xpm",
-	&map->text[NORTH]->x, &map->text[NORTH]->y)))
+	map->texture_north, &map->text[NORTH]->x, &map->text[NORTH]->y)))
 		exit_failure("Wrong Texture\n", map);
 	if (!(map->text[NORTH]->str =
 	(unsigned int*)mlx_get_data_addr(map->text[NORTH]->text,

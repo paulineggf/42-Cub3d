@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 16:46:27 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 11:07:59 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:39:50 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void			fill_str(t_map *map)
 {
-	ft_bzero(map->zbuffer, sizeof(int) * RES_X);
+	ft_bzero(map->zbuffer, sizeof(int) * map->res_x);
 	while (map->size_sprite > 0)
 	{
 		ft_bzero(map->sprite[map->size_sprite], sizeof(t_sprite));
 		map->size_sprite--;
 	}
 	map->stripe = 0;
-	while (map->stripe < RES_X)
+	while (map->stripe < map->res_x)
 	{
-		map->gamer.camerax = 2.0 * (double)map->stripe / (double)RES_X - 1.0;
+		map->gamer.camerax = 2.0 * (double)map->stripe / (double)map->res_x - 1.0;
 		map->gamer.raydirx = map->gamer.dirx + map->gamer.planex
 								* map->gamer.camerax;
 		map->gamer.raydiry = map->gamer.diry + map->gamer.planey

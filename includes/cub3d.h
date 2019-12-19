@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 11:18:53 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:40:54 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 # include "mlx.h"
 
 # define BUFFER_CUB		33
-# define RES_X			1920
-# define RES_Y			1080
 
 enum
 {
@@ -130,11 +128,20 @@ typedef struct		s_map
 {
 	int				x;
 	int				y;
+	int				res_x;
+	int				res_y;
 	int				stripe;
 	int				i;
 	int				**map;
 	int				size_sprite;
 	double			*zbuffer;
+	char			*texture_north;
+	char			*texture_south;
+	char			*texture_east;
+	char			*texture_west;
+	char			*texture_sprite;
+	char			*texture_sky;
+	char			*texture_floor;
 	t_win			ptr;
 	t_pos			gamer;
 	t_floor			floor;
