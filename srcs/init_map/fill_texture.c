@@ -6,25 +6,22 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 15:13:26 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 17:07:18 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:30:29 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		fill_texture(char *buf, int *i, char *texture, t_map *map)
+int		fill_texture(char *str, int *i, int len_text, char **texture)
 {
 	int		tmp;
-	int		len_text;
 
 	tmp = *i;
-	while (buf[*i] == ' ')
+	while (str[*i] == ' ')
 		(*i)++;
 	if (tmp == *i)
 		return (0);
-	len_text = ft_strnlen(buf + *i, '\n');
-	easy_malloc((void**)&texture, len_text, map);
-	ft_strncpy(texture, buf + *i, '\n');
+	ft_strncpy(*texture, str + *i, len_text);
 	*i += len_text;
 	return (1);
 }

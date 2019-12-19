@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 17:13:34 by pganglof         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:19:36 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ void				malloc_sprite(t_map *map);
 void				define_params(char *str, int *i, t_map *map);
 char				*fill_buf(int fd, t_map *map);
 void				define_resolution(char *buf, int *i, t_map *map);
-int					fill_texture(char *buf, int *i, char *texture, t_map *map);
+int					fill_texture(char *str, int *i, int len_text, char **texture);
 char				*ft_realloc(char *str, char *buf, int n);
 
 #endif
