@@ -5,87 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/19 14:30:21 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 18:30:31 by pganglof         ###   ########.fr       */
+/*   Created: 2020/01/02 13:06:36 by pganglof          #+#    #+#             */
+/*   Updated: 2020/01/02 20:00:59 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		define_params(char *str, int *i, t_map *map)
+void		end_define_params(int ret, char *str, char **tmp, t_map *map)
 {
-	int		len_text;
-
-	while (str[*i])
+	if (ret == -1)
 	{
-		while (str[*i] == ' ' || str[*i] == '\n')
-			(*i)++;
-		if (!ft_strncmp("R", str + *i, 1))
-			define_resolution(str, i, map);
-		if (!ft_strncmp("NO", str + *i, 2) && map->texture_north == NULL)
-		{
-			*i += 2;
-			len_text = (int)ft_strnlen(str + *i, '\n');
-			easy_malloc((void**)&map->texture_north, sizeof(char) * len_text, map);
-			if (!(fill_texture(str, i, len_text, &map->texture_north)))
-				exit_failure("Map error\n", map);
-		}
-		if (!ft_strncmp("SO", str + *i, 2) && map->texture_south == NULL)
-		{
-			*i += 2;
-			len_text = (int)ft_strnlen(str + *i, '\n');
-			easy_malloc((void**)&map->texture_south, sizeof(char) * len_text, map);
-			if (!(fill_texture(str, i, len_text, &map->texture_south)))
-				exit_failure("Map error\n", map);
-		}
-		if (!ft_strncmp("WE", str + *i, 2) && map->texture_west == NULL)
-		{
-			*i += 2;
-			len_text = (int)ft_strnlen(str + *i, '\n');
-			easy_malloc((void**)&map->texture_west, sizeof(char) * len_text, map);
-			if (!(fill_texture(str, i, len_text, &map->texture_west)))
-				exit_failure("Map error\n", map);
-		}
-		if (!ft_strncmp("EA", str + *i, 2) && map->texture_east == NULL)
-		{
-			*i += 2;
-			len_text = (int)ft_strnlen(str + *i, '\n');
-			easy_malloc((void**)&map->texture_east, sizeof(char) * len_text, map);
-			if (!(fill_texture(str, i, len_text, &map->texture_east)))
-				exit_failure("Map error\n", map);
-		}
-		if (!ft_strncmp("S", str + *i, 1) && map->texture_sprite == NULL
-		&& ft_strncmp("O", str + *i + 1, 1))
-		{
-			*i += 1;
-			len_text = (int)ft_strnlen(str + *i, '\n');
-			easy_malloc((void**)&map->texture_sprite, sizeof(char) * len_text, map);
-			if (!(fill_texture(str, i, len_text, &map->texture_sprite)))
-				exit_failure("Map error\n", map);
-		}
-		if (!ft_strncmp("F", str + *i, 1) && map->texture_floor == NULL)
-		{
-			*i += 1;
-			len_text = (int)ft_strnlen(str + *i, '\n');
-			easy_malloc((void**)&map->texture_floor, sizeof(char) * len_text, map);
-			if (!(fill_texture(str, i, len_text, &map->texture_floor)))
-				exit_failure("Map error\n", map);
-		}
-		if (!ft_strncmp("C", str + *i, 1) && map->texture_sky == NULL)
-		{
-			*i += 1;
-			len_text = (int)ft_strnlen(str + *i, '\n');
-			easy_malloc((void**)&map->texture_sky, sizeof(char) * len_text, map);	
-			if (!(fill_texture(str, i, len_text, &map->texture_sky)))
-				exit_failure("Map error\n", map);
-		}
-		if (map->texture_north && map->texture_south && map->texture_east
-		&& map->texture_west && map->texture_floor
-		&& map->texture_sky && map->texture_sprite)
-		{
-			while (str[*i] == ' ' || str[*i] == '\n')
-				(*i)++;
-		}
+		free(*tmp);
+		exit_failure("Read fail\n", map);
 	}
-	exit_failure("Map error\n", map);
+	else if (!str[0])
+	{
+		free(str);
+		str = NULL;
+		return ;
+	}
+	else if (map->x != define_x(str, tmp, map))
+	{
+		free(str);
+		free(*tmp);
+		exit_failure("Error\nMap error\n", map);
+	}
+	free(str);
+}
+
+static void	loop_define_params(char *str, char **tmp, t_map *map)
+{
+	if (map->texture_north && map->texture_south && map->texture_east
+	&& map->texture_west && map->texture_floor
+	&& map->texture_sky && map->texture_sprite && map->x == 0)
+		map->x = define_x(str, tmp, map);
+	else if (map->x)
+	{
+		if (map->x != define_x(str, tmp, map))
+			exit_failure("Error\nMap error\n", map);
+	}
+	else
+		define_params2(str, 0, map);
+}
+
+void		define_params(int fd, char **tmp, t_map *map)
+{
+	char	*str;
+	int		ret;
+
+	str = NULL;
+	if (!(*tmp = malloc(sizeof(char) * 1)))
+		exit_failure("Malloc error\n", map);
+	**tmp = '\0';
+	while ((ret = get_next_line(fd, &str)) > 0)
+	{
+		if (!str[0])
+		{
+			free(str);
+			str = NULL;
+			continue ;
+		}
+		loop_define_params(str, tmp, map);
+		free(str);
+		str = NULL;
+	}
+	end_define_params(ret, str, tmp, map);
 }

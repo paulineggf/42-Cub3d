@@ -1,12 +1,16 @@
 R 1920 1080
-NO ./textures/texture_north/B_v-for-vend_nAkdIAig.xpm
+
+NO ./textures/texture_north/north.xpm
 SO ./textures/texture_south/anon_vert.xpm
 WE ./textures/texture_west/anon.xpm
-EA ./textures/texture_east/EqdAgN.xpm
-S ./texture/texture_sprite/alien-29470.xpm
+
+EA ./textures/texture_east/east.xpm
+S ./textures/texture_sprite/alien-29470.xpm
 
 F ./textures/texture_floor/sol_lune.xpm
-C ./textures/texture_sky/Earth-globe-planet-space-world-1560003-wallhere.com.XPM
+C ./textures/texture_sky/sky.xpm
+
+
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 1 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 1 0 1 1 0 0 0 0 0 1 1 1 0 0 0 0 0 0 2 0 0 0 0 0 1 0 0 0 1
@@ -21,3 +25,4 @@ C ./textures/texture_sky/Earth-globe-planet-space-world-1560003-wallhere.com.XPM
 1 1 0 0 0 0 0 0 1 1 0 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 N 0 1
 1 1 1 1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 0 0 1
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+

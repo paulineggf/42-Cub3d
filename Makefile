@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2019/12/19 17:16:14 by pganglof         ###   ########.fr        #
+#    Updated: 2020/01/02 19:31:17 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,22 +18,23 @@ PATH_FLOOR_SKY = ./srcs/floor_sky/
 
 SRCS_NAME =	main.c					\
 			exit_failure.c 			\
-			easy_malloc.c 			\
-			malloc_texture.c
+			easy_malloc.c
 
 SRCS_INIT = define_x.c 				\
-			define_y.c 				\
-			fill_map.c 				\
 			ft_close.c				\
+			fill_map.c 				\
 			init_map.c 				\
 			init_pos.c 				\
 			malloc_map.c 			\
 			malloc_sprite.c			\
 			define_params.c 		\
-			fill_buf.c 				\
+			define_params2.c 		\
 			define_resolution.c 	\
 			fill_texture.c 			\
-			ft_realloc.c
+			init_texture.c 			\
+			ft_realloc.c 			\
+			malloc_texture.c 		\
+			verif_map.c
 
 SRCS_GAME =	launch_game.c 			\
 			init_image.c 			\
@@ -54,7 +55,6 @@ SRCS_GAME =	launch_game.c 			\
 			define_xy.c 			\
 			draw_wall.c 			\
 			define_wallx.c 			\
-			init_texture.c 			\
 			press_key.c 
 
 SRCS_SPRITE = sprite_stock.c 			\

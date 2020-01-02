@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 15:40:37 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/02 20:02:41 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int		main(int argc, char **argv)
 {
 	t_map	*map;
-	// t_list	*new;
 
 	if (argc == 2)
 	{
@@ -38,15 +37,13 @@ int		main(int argc, char **argv)
 		if (!(map->ptr.str = (unsigned int*)mlx_get_data_addr(map->ptr.img,
 		&map->ptr.b_p, &map->ptr.size_l, &map->ptr.endian)))
 			exit_failure("Malloc failure\n", map);
-		// if (!(new = ft_lstnew(map->ptr.str)))
-		// 	exit_failure("Malloc failure\n", map);
-		// ft_lstadd_front(&(map->garbage_collector), new);
 		launch_game(map);
 	}
+	ft_putstr_fd("Missing file\n", 2);
 	return (0);
 }
 
 // void	end()
 // {
-// 	while (1) ;
+//  	while (1) ;
 // }

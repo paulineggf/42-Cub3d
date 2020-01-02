@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 18:41:13 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 13:06:52 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/02 20:51:17 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int			press_key(int key, t_map *map)
 		map->gamer.run = 1;
 	if (key == 125)
 		map->gamer.retreat_fast = 1;
+	if (key == 49)
+		map->gamer.jump = 30;
 	if (key == 53)
 	{
 		mlx_destroy_image(map->ptr.mlx, map->ptr.img);

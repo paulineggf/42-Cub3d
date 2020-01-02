@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define_y.c                                         :+:      :+:    :+:   */
+/*   malloc_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/26 13:57:35 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 17:03:35 by pganglof         ###   ########.fr       */
+/*   Created: 2019/12/18 15:20:26 by pganglof          #+#    #+#             */
+/*   Updated: 2020/01/02 19:03:58 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		define_y(char *str, int i, t_map *map)
+void	malloc_texture(t_map *map)
 {
-	int		ret;
+	int		i;
+	t_list	*new;
 
-	map->y = 1;
-	while (str[i])
+	if (!(map->text = malloc(sizeof(t_win*) * LAST)))
+		exit_failure("Malloc failure\n", map);
+	if (!(new = ft_lstnew(map->text)))
+		exit_failure("Malloc failure\n", map);
+	ft_lstadd_front(&(map->garbage_collector), new);
+	i = 0;
+	while (i < LAST)
 	{
-		i += map->x;
-		if (str[i] == '1' || str[i] == '2' || str[i] == '0')
-			ret = define_x(str, i, map);
-		else
-			break ;
-		if (ret != map->x)
-			exit_failure("Map error\n", map);
-		else
-			map->y++;
-	}
-	while ((str[i] == ' ' || str[i] == '\n') && str[i])
+		easy_malloc((void**)&(map->text[i]), sizeof(t_win), map);
 		i++;
-	if (str[i] != '\0')
-		exit_failure("Map error\n", map);
+	}
 }

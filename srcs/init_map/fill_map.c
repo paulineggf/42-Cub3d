@@ -5,57 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/26 14:45:54 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/13 16:52:54 by pganglof         ###   ########.fr       */
+/*   Created: 2020/01/02 14:18:18 by pganglof          #+#    #+#             */
+/*   Updated: 2020/01/02 19:26:24 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void		fill_mapbis(char *buf, int *i, int *j, t_map *map)
+void	fill_map(char *tmp, int i, t_map *map)
 {
-	int		k;
+	int		y;
+	int		x;
 
-	k = 0;
-	while (buf[k] && *i < map->y)
+	y = -1;
+	while (y++ < map->y - 1)
 	{
-		while (buf[k] && *j < map->x)
+		x = -1;
+		while (x++ < map->x - 1)
 		{
-			if (buf[k] == '2')
+			if (tmp[i] == ' ')
+				i++;
+			if (tmp[i] == '2')
 				map->size_sprite++;
-			if (buf[k] == 'N' || buf[k] == 'W'
-			|| buf[k] == 'E' || buf[k] == 'S')
+			if (tmp[i] == 'N' || tmp[i] == 'W'
+			|| tmp[i] == 'E' || tmp[i] == 'S')
 			{
-				init_pos(map, buf[k], *j, *i);
-				map->map[*i][*j] = 0;
+				init_pos(map, tmp[i], x, y);
+				map->map[y][x] = 0;
 			}
 			else
-				map->map[*i][*j] = buf[k] - 48;
-			(*j)++;
-			k++;
+				map->map[y][x] = tmp[i] - 48;
+			i++;
 		}
-		if (!buf[k])
-			break ;
-		else
-			k++;
-		*j = 0;
-		(*i)++;
 	}
-}
-
-int				fill_map(int fd, t_map *map)
-{
-	int		ret;
-	int		i;
-	int		j;
-	char	buf[BUFFER_CUB];
-
-	i = 0;
-	j = 0;
-	while ((ret = read(fd, buf, BUFFER_CUB - 1)) > 0)
-	{
-		buf[ret] = '\0';
-		fill_mapbis(buf, &i, &j, map);
-	}
-	return (ret);
+	free(tmp);
 }

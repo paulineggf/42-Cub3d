@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 12:54:32 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/18 14:20:33 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/02 19:55:31 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	init_ws(t_map *map, int orientation)
 
 void		init_pos(t_map *map, int orientation, int x, int y)
 {
+	if (map->gamer.posx || map->gamer.posy)
+		exit_failure("Error\nDouble position\n", map);
 	map->gamer.posx = x + 0.5;
 	map->gamer.posy = y + 0.5;
 	if (orientation == 'N')

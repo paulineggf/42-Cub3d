@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2019/12/19 18:19:36 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/02 20:10:08 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ enum
 	SPRITE,
 	SKY,
 	FLOOR,
+	LAST,
 };
 
 typedef struct		s_pos
@@ -62,6 +63,9 @@ typedef struct		s_pos
 	int				run;
 	int				retreat;
 	int				retreat_fast;
+	int				jump;
+	int				tmp_jump;
+	int				tmp2_jump;
 	int				left;
 	int				right;
 	int				rotate_right;
@@ -153,9 +157,9 @@ typedef struct		s_map
 void				malloc_map(t_map *map);
 void				init_map(char *av, t_map *map);
 void				define_y(char *str, int i, t_map *map);
-int					define_x(char *str, int i, t_map *map);
+int					define_x(char *str, char **tmp, t_map *map);
 void				ft_close(int fd, t_map *map);
-int					fill_map(int fd, t_map *map);
+void				fill_map(char *tmp, int i, t_map *map);
 void				init_pos(t_map *map, int orientation, int x, int y);
 int					launch_game(t_map *map);
 int					press_key(int key, t_map *map);
@@ -201,10 +205,11 @@ void				sprite_combsort(t_map *map);
 void				draw_floor(t_map *map);
 void				floor_xywall(t_map *map);
 void				malloc_sprite(t_map *map);
-void				define_params(char *str, int *i, t_map *map);
-char				*fill_buf(int fd, t_map *map);
-void				define_resolution(char *buf, int *i, t_map *map);
-int					fill_texture(char *str, int *i, int len_text, char **texture);
+void				define_params(int fd, char **tmp, t_map *map);
+void				define_params2(char *str, int i, t_map *map);
+void				define_resolution(char *str, int i, t_map *map);
+void				fill_texture(char *str, int i, char **texture, t_map *map);
 char				*ft_realloc(char *str, char *buf, int n);
+void				verif_map(t_map *map);
 
 #endif
