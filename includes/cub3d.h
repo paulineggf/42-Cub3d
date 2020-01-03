@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/02 20:10:08 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/03 15:30:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ enum
 	SKY,
 	FLOOR,
 	LAST,
+};
+
+union				bmp
+{
+	int		size;
+	char	size_char[4];
 };
 
 typedef struct		s_pos
@@ -211,5 +217,6 @@ void				define_resolution(char *str, int i, t_map *map);
 void				fill_texture(char *str, int i, char **texture, t_map *map);
 char				*ft_realloc(char *str, char *buf, int n);
 void				verif_map(t_map *map);
+void				bmp_image(t_map *map);
 
 #endif

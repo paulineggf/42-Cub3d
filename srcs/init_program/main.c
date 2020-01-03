@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/02 20:02:41 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/03 13:35:15 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		main(int argc, char **argv)
 {
 	t_map	*map;
 
-	if (argc == 2)
+	if (argc == 2 || (argc == 3 && !ft_strcmp(argv[2], "-save")))
 	{
 		if (!(map = malloc(sizeof(t_map))))
 			return (0);
@@ -37,9 +37,15 @@ int		main(int argc, char **argv)
 		if (!(map->ptr.str = (unsigned int*)mlx_get_data_addr(map->ptr.img,
 		&map->ptr.b_p, &map->ptr.size_l, &map->ptr.endian)))
 			exit_failure("Malloc failure\n", map);
-		launch_game(map);
+		if (argc == 2)
+			launch_game(map);
+		else
+			bmp_image(map);
 	}
-	ft_putstr_fd("Missing file\n", 2);
+	else if (argc == 3 && ft_strcmp(argv[2], "-save"))
+		ft_putstr_fd("Don't recognize the second argument\n", 2);
+	else
+		ft_putstr_fd("Missing file\n", 2);
 	return (0);
 }
 

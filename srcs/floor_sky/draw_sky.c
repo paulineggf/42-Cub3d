@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:38:34 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/02 21:01:58 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/03 11:37:34 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		draw_sky(t_map *map)
 
 	textx = fabs((atan2(map->gamer.raydiry, map->gamer.raydirx)
 	/ M_PI) * map->text[SKY]->x);
-	ysky = 200;
+	ysky = 200 + map->gamer.tmp_jump;
 	y = 0;
 	while (y < (map->res_y / 2) + map->gamer.tmp_jump)
 	{
