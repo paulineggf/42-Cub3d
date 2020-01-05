@@ -6,13 +6,13 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/03 13:35:15 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/05 15:12:27 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// void	end(void) __attribute__ ((destructor));
+void	end(void) __attribute__ ((destructor));
 
 int		main(int argc, char **argv)
 {
@@ -49,7 +49,7 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-// void	end()
-// {
-//  	while (1) ;
-// }
+void	end()
+{
+ 	while (1) ;
+}
