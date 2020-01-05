@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/03 15:30:34 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/05 15:20:37 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@ enum
 	SKY,
 	FLOOR,
 	LAST,
-};
-
-union				bmp
-{
-	int		size;
-	char	size_char[4];
 };
 
 typedef struct		s_pos
