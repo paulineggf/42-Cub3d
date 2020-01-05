@@ -6,13 +6,11 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:25:18 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/05 15:12:27 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/05 15:16:54 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	end(void) __attribute__ ((destructor));
 
 int		main(int argc, char **argv)
 {
@@ -47,9 +45,4 @@ int		main(int argc, char **argv)
 	else
 		ft_putstr_fd("Missing file\n", 2);
 	return (0);
-}
-
-void	end()
-{
- 	while (1) ;
 }
