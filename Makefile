@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2020/01/05 15:11:09 by pganglof         ###   ########.fr        #
+#    Updated: 2020/01/05 16:03:17 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,6 @@ OBJS6 = $(SRCS6:.c=.o)
 OBJS7 = $(SRCS7:.c=.o)
 NAME = Cub3D
 LIB = libft/libft.a
-LIBFT = ./libft/srcs/*.o
 MLX = minilibx_opengl_20191021/libmlx.a
 RM = rm -f
 CC = gcc
@@ -108,14 +107,15 @@ all: $(NAME)
 
 -include $(DPDCS)
 
-$(LIBFT):
+$(LIB):
 	cd ./libft/ && make && cd ..
 
-$(NAME): $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(LIBFT) -I /usr/local/include/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) $(MLX)
+$(NAME): $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(LIB)
+	$(CC) $(CFLAGS) $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) -I /usr/local/include/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) $(MLX)
 
 clean:
-	$(RM) $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(LIBFT) -include $(DPDCS)
+	$(RM) $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(LIB) -include $(DPDCS)
+	cd ./libft/ && make fclean && cd ..
 
 fclean: clean
 	$(RM) $(NAME)
