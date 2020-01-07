@@ -6,7 +6,7 @@
 #    By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 14:01:08 by pganglof          #+#    #+#              #
-#    Updated: 2020/01/05 16:03:17 by pganglof         ###   ########.fr        #
+#    Updated: 2020/01/07 10:24:51 by pganglof         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ PATH_BMP = ./srcs/bmp/
 
 SRCS_NAME =	main.c					\
 			exit_failure.c 			\
-			easy_malloc.c
+			easy_malloc.c 			\
+			close_croix.c
 
 SRCS_INIT = define_x.c 				\
 			ft_close.c				\
@@ -58,7 +59,7 @@ SRCS_GAME =	launch_game.c 			\
 			define_wallx.c 			\
 			press_key.c 
 
-SRCS_SPRITE = sprite_stock.c 			\
+SRCS_SPRITE = sprite_stock.c 		\
 			sprite_distance.c 		\
 			sprite_height.c 		\
 			sprite_draw.c			\
@@ -99,7 +100,7 @@ LIB = libft/libft.a
 MLX = minilibx_opengl_20191021/libmlx.a
 RM = rm -f
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address -MMD -I $(HEADERS) -I $(HEADERS2) -Ofast
 
 DPDCS = $(SRCS:.c=.d) $(SRCS2:.c=.d) $(SRCS4:.c=.d) $(SRCS5:.c=.d) $(SRCS6:.c=.d) $(SRCS7:.c=.d)
 
@@ -112,10 +113,12 @@ $(LIB):
 
 $(NAME): $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(LIB)
 	$(CC) $(CFLAGS) $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) -I /usr/local/include/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(LIB) $(MLX)
+	mv $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(DPDCS) ./srcs/o_file/
 
 clean:
 	$(RM) $(OBJS) $(OBJS2) $(OBJS4) $(OBJS5) $(OBJS6) $(OBJS7) $(LIB) -include $(DPDCS)
 	cd ./libft/ && make fclean && cd ..
+	$(RM) ./srcs/o_file/*
 
 fclean: clean
 	$(RM) $(NAME)

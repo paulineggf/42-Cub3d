@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 15:13:26 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/02 19:28:02 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/05 18:00:41 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	fill_texture(char *str, int i, char **texture, t_map *map)
 {
-	int		j;
-
-	j = 0;
 	while (str[i] == ' ')
 		i++;
 	easy_malloc((void**)texture, sizeof(char) *

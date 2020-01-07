@@ -6,7 +6,7 @@
 /*   By: pganglof <pganglof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 20:27:29 by pganglof          #+#    #+#             */
-/*   Updated: 2020/01/05 15:20:37 by pganglof         ###   ########.fr       */
+/*   Updated: 2020/01/07 10:26:15 by pganglof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,5 +212,6 @@ void				fill_texture(char *str, int i, char **texture, t_map *map);
 char				*ft_realloc(char *str, char *buf, int n);
 void				verif_map(t_map *map);
 void				bmp_image(t_map *map);
+int					close_cross(int key, t_map *map);
 
 #endif
