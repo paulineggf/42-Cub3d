@@ -4,6 +4,7 @@ NO ./textures/texture_north/north.xpm
 SO ./textures/texture_south/anon_vert.xpm
 WE ./textures/texture_west/anon.xpm
 
+
 EA ./textures/texture_east/east.xpm
 S ./textures/texture_sprite/alien-29470.xpm
 
